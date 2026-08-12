@@ -1,0 +1,235 @@
+### Settings ###
+
+# Mod keys
+set $mod Mod4
+set $smod Shift
+
+# Font
+font JetBrainsMono Nerd Font 16
+
+# Movement keys
+set $left h
+set $down j
+set $up k
+set $right l
+
+# Gaps 
+gaps inner 10
+gaps outer 10
+gaps top 10
+
+# Borders
+default_border pixel 5
+default_floating_border pixel 5
+
+### Output configuration ###
+
+# Screen layout
+output eDP-1 resolution 1920x1200
+
+# Set wallpaper from the color palette
+output * bg #b8d9ae solid_color
+# output * bg ~/pictures/wallpapers/1394827.png fill
+
+# Client colors                 border    background text     indicator child_border
+client.focused                  #4a5d46   #000000   #e0e0e0   #4a5d46   #4a5d46
+client.focused_inactive         #6e6e70   #000000   #6e6e70   #6e6e70   #6e6e70
+client.unfocused                #6e6e70   #000000   #6e6e70   #6e6e70   #6e6e70
+client.urgent                   #b8d9ae   #b8d9ae   #000000   #b8d9ae   #b8d9ae
+client.placeholder              #6e6e70   #000000   #6e6e70   #6e6e70   #6e6e70
+client.background               #000000
+
+### Input configuration ###
+
+# Touchpad
+input type:touchpad {
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
+}
+
+# Keyboard default layout
+input type:keyboard {
+    xkb_layout "us"
+}
+
+### Autostart ###
+
+# Waybar and Swaync
+exec_always bash -c 'pkill waybar; waybar &'
+# exec_always bash -c 'pkill swaync; swaync &'
+exec_always bash -c 'pkill swayosd-server; swayosd-server -s ~/.config/swayosd/style.css &'
+
+# Scripts
+exec python ~/.config/sway/scripts/autotiling.py
+exec python ~/.config/sway/scripts/workspaces.py
+
+# Daemons
+exec_always --no-startup-id ~/.config/swaync/scripts/battery.sh
+exec_always --no-startup-id ~/.config/swaync/scripts/vpn-notif.sh
+exec clipse -listen
+
+### Applications ###
+
+# Custom launchers
+bindsym $mod+Return exec kitty
+bindsym $mod+d exec ~/.config/wofi/scripts/toggle-menu.sh drun
+bindsym $mod+Shift+n exec swaync-client -t
+bindsym $mod+c exec ~/.config/clipse/scripts/toggle-clipboard.sh
+bindsym $mod+n exec ~/.config/notse/scripts/toggle-notes.sh
+bindsym $mod+$smod+e exec ~/.config/swaync/scripts/keyboard.sh
+bindsym $mod+$smod+p exec ~/.config/sway/scripts/color-picker.sh
+bindsym $mod+t exec ~/.config/sway/scripts/betterbird-toggle.sh
+
+# Specific applications layout
+for_window [app_id="galendae"] move position 765 0
+for_window [app_id="clipse"] floating enable, resize set 950 950
+for_window [app_id="notse"] floating enable, resize set 850 950
+for_window [app_id="eu.betterbird.Betterbird"] floating enable, move position center
+for_window [app_id="one.alynx.showmethekey"] sticky enable, floating enable, resize set 320 100, move position 1560 px 1000 px
+
+### Workspaces ###
+
+# Switch to workspace 1–10
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+# Move focused window to workspace 1–10
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+
+### Navigation ###
+
+# Focus between windows in direction
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+# Move windows in direction
+bindsym $mod+$smod+$left move left
+bindsym $mod+$smod+$down move down
+bindsym $mod+$smod+$up move up
+bindsym $mod+$smod+$right move right
+
+### Window layout & mode control ###
+
+# Layout styles
+bindsym $mod+e layout toggle split
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+
+# Split orientation
+bindsym $mod+b splith
+bindsym $mod+v splitv
+
+# Window state (fullscreen, floating)
+bindsym $mod+f fullscreen
+bindsym $mod+Shift+space floating toggle
+floating_modifier $mod normal
+
+# Focus and navigation
+bindsym $mod+space focus mode_toggle
+bindsym $mod+a focus parent
+
+# Window and config actions
+bindsym $mod+$smod+q kill
+bindsym $mod+$smod+r exec_always swaymsg reload && notify-send --app-name="Sway" --icon=preferences-system --urgency=low --expire-time=3000 "Sway Reloaded" "Configuration reloaded successfully."
+
+### Scratchpad ###
+
+# Move to scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show/hide/cycle scratchpad
+bindsym $mod+minus scratchpad show
+
+### Resize mode ###
+
+# Resizing windows and adjusting gaps with arrow keys
+mode "resize" {
+    bindsym $left  resize shrink width 10 px
+    bindsym $down  resize grow height 10 px
+    bindsym $up    resize shrink height 10 px
+    bindsym $right resize grow width 10 px
+
+    bindsym $smod+$left  gaps horizontal minus 5
+    bindsym $smod+$down  gaps horizontal plus 5
+    bindsym $smod+$up    gaps vertical minus 5
+    bindsym $smod+$right gaps vertical plus 5
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
+
+### Function keys ###
+
+# F1: Audio mute
+# bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMute exec swayosd-client --output-volume mute-toggle
+
+# F2: Volume down
+# bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioLowerVolume exec swayosd-client --output-volume -5
+
+# F3: Volume up
+# bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioRaiseVolume exec swayosd-client --output-volume 5
+
+# F4: Media previous
+bindsym --locked XF86AudioPrev exec playerctl previous
+
+# F5: Media play/pause
+bindsym --locked XF86AudioPlay exec playerctl play-pause
+
+# F6: Media next
+bindsym --locked XF86AudioNext exec playerctl next
+
+# F7: Brightness down
+# bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessDown exec swayosd-client --brightness -5
+
+# F8: Brightness up
+# bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym XF86MonBrightnessUp  exec swayosd-client --brightness +5
+
+# F9: Display manager
+# bindsym $mod+p exec nwg-displays
+bindsym $mod+p exec ~/.config/wofi/scripts/toggle-menu.sh display
+
+# F10: Airplane mode
+bindsym --locked XF86RFKill exec nmcli radio all toggle
+
+# F11: Print screen
+bindsym --locked Print exec ~/.config/wofi/scripts/toggle-menu.sh capture
+
+# F12: Favorites
+bindsym --locked XF86AudioMedia exec ~/.config/zellij/scripts/zen-toggle.sh
+
+### Others ###
+
+# Sleep after 10 min
+exec_always swayidle -w \
+    timeout 600 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"'
+
+# Systemd environment fix 
+include /etc/sway/config.d/*

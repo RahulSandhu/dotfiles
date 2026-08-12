@@ -1,0 +1,22 @@
+# Appearance and layout
+show=drun
+prompt=
+height=500
+width=600
+columns=1
+location=top-left
+xoffset=20
+yoffset=20
+lines=5
+allow_images=true
+hide_scroll=true
+
+# Behaviour
+insensitive=true
+key_down=Ctrl-j
+key_up=Ctrl-k
+show_all=true
+always_parse_args=true
+
+# Terminal
+term=kitty

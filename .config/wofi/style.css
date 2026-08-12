@@ -1,0 +1,66 @@
+/* Global font settings */
+* {
+  font-family: 'JetBrainsMono Nerd Font';
+  font-size: 16pt;
+  color: #e0e0e0;
+}
+
+/* Window styling */
+window {
+  margin: 10px;
+  padding: 15px;
+  border: 5px solid #445c3d;
+  background-color: #000000;
+}
+
+/* Containers */
+#outer-box,
+#inner-box,
+#scroll {
+  margin: 5px;
+  padding: 10px;
+}
+
+/* Input field */
+#input {
+  margin: 10px 15px;
+  padding: 10px 14px;
+  background-color: #445c3d;
+  outline: none;
+  border-radius: 0px;
+}
+
+/* Entry container */
+#entry {
+  padding: 10px;
+  margin: 6px 10px;
+  background-color: transparent;
+  transition: background-color 0.2s ease;
+}
+
+/* Text inside each entry */
+#text {
+  margin: 4px;
+  border: none;
+}
+
+/* Icon inside entries */
+#entry image {
+  margin-right: 12px;
+}
+
+/* Selected entry */
+#entry:selected {
+  border: 2px solid #b8d9ae;
+  background-color: rgba(184, 217, 174, 0.2);
+}
+
+/* Hide submenu arrow */
+#entry arrow {
+  min-width: 0;
+  min-height: 0;
+  margin: -5px;
+  padding: 0;
+  color: transparent;
+  background: none;
+}

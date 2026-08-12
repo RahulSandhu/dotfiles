@@ -1,0 +1,53 @@
+/* Main osd window styling */
+window#osd {
+  border-radius: 999px;
+  border: 5px solid #445c3d;
+  background: #000000;
+}
+
+/* Container for margin and background */
+window#osd #container {
+  margin: 20px;
+  background: transparent;
+}
+
+/* Icon scaling */
+window#osd image {
+  -gtk-icon-transform: scale(1.0);
+}
+
+/* Foreground color for text and icons */
+window#osd image,
+window#osd label {
+  color: #e0e0e0;
+}
+
+/* Disabled state opacity */
+window#osd progressbar:disabled,
+window#osd image:disabled {
+  opacity: 0.5;
+}
+
+/* Progress bar structure */
+window#osd progressbar {
+  min-height: 10px;
+  border-radius: 999px;
+  background: transparent;
+  border: none;
+}
+
+/* Progress bar trough (empty part) */
+window#osd trough {
+  min-height: inherit;
+  border-radius: inherit;
+  border: none;
+  background: #445c3d;
+}
+
+/* Progress bar fill (active part) */
+window#osd progress {
+  min-height: inherit;
+  border-radius: inherit;
+  border: none;
+  background: #b8d9ae;
+}

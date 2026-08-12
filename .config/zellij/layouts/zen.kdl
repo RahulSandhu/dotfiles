@@ -1,0 +1,82 @@
+layout {
+    default_tab_template {
+        children
+        pane size=1 borderless=true {
+            plugin location="zjstatus" {
+                format_left   "#[fg=#1688f0,bold]{command_cwd} {command_git}"
+                format_center ""
+                format_right  "#[fg=#3dd50a]{command_cpu} #[fg=#ffd21a]{command_ram} #[fg=#11dddd]{command_bluetooth} #[fg=#bf58ff]{command_wifi} #[fg=#FF69B4]{command_battery}"
+                format_space  ""
+
+                border_enabled  "false"
+                border_char     "─"
+                border_format   "#[fg=#6C7086]{char}"
+                border_position "top"
+
+                hide_frame_for_single_pane "false"
+
+                mode_normal  "#[bg=#1688f0] "
+                mode_tmux    "#[bg=#ffd21a] "
+
+                tab_normal   "#[fg=#6C7086,bold] {name} "
+                tab_active   "#[fg=#ff964f,bold] {name} "
+
+                command_cwd_command     "bash -c '/home/rahul/.config/zellij/scripts/zjstatus/cwd.sh'"
+                command_cwd_format      "{stdout}"
+                command_cwd_interval  "1"
+                command_cwd_cwd       "{focused_pane_cwd}"
+                command_cwd_rendermode "static"
+
+                command_cpu_command     "bash -c '/home/rahul/.config/zellij/scripts/zjstatus/cpu.sh'"
+                command_cpu_format      "#[fg=#3dd50a] {stdout}"
+                command_cpu_interval    "3"
+                command_cpu_rendermode  "static"
+
+                command_ram_command     "bash -c '/home/rahul/.config/zellij/scripts/zjstatus/ram.sh'"
+                command_ram_format      "#[fg=#ffd21a] {stdout}"
+                command_ram_interval    "3"
+                command_ram_rendermode  "static"
+
+                command_bluetooth_command     "bash -c '/home/rahul/.config/zellij/scripts/zjstatus/bluetooth.sh'"
+                command_bluetooth_format      "#[fg=#11dddd] {stdout}"
+                command_bluetooth_interval    "5"
+                command_bluetooth_rendermode  "static"
+
+                command_wifi_command     "bash -c '/home/rahul/.config/zellij/scripts/zjstatus/wifi.sh'"
+                command_wifi_format      "#[fg=#bf58ff] {stdout}"
+                command_wifi_interval    "5"
+                command_wifi_rendermode  "static"
+
+                command_battery_command     "bash -c '/home/rahul/.config/zellij/scripts/zjstatus/battery.sh'"
+                command_battery_format      "#[fg=#FF69B4]{stdout}"
+                command_battery_interval    "5"
+                command_battery_rendermode  "static"
+
+                command_git_command          "bash -c '/home/rahul/.config/zellij/scripts/zjstatus/git.sh'"
+                command_git_format           "#[fg=#3dd50a]{stdout}"
+                command_git_interval         "5"
+                command_git_rendermode       "static"
+                command_git_hideonemptystdout "true"
+            }
+        }
+    }
+
+    tab {
+        pane split_direction="vertical" {
+            pane size="20%" name="Explorer" command="bash" {
+                args "-c" "while true; do yazi || true; done"
+                close_on_exit true
+            }
+            pane size="80%" split_direction="horizontal" {
+                pane size="70%" name="Editor" command="bash" {
+                    args "-c" "while true; do rm -f /tmp/nvim-ide.sock; nvim --listen /tmp/nvim-ide.sock || true; done"
+                    close_on_exit true
+                }
+                pane name="Shell" size="30%"
+            }
+        }
+        floating_panes {
+            pane x="5%" y="10%" width="90%" height="80%" name="Opencode"
+        }
+    }
+}

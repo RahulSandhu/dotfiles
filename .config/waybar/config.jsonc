@@ -1,0 +1,31 @@
+// General Waybar settings
+{
+  // Position
+  "layer": "top",
+  "height": 38,
+  "position": "top",
+
+  // Module positions on the bar
+  "modules-left": ["sway/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["custom/menu"],
+
+  // Sway workspaces module
+  "sway/workspaces": {
+  },
+
+  // Clock module
+  "clock": {
+    "format": "{:%A %d %B %Y | %H:%M}",
+    "tooltip": false,
+    "on-click": "exec galendae"
+  },
+
+  // Custom menu module
+  "custom/menu": {
+    "exec": "~/.config/waybar/scripts/status.sh",
+    "interval": 2,
+    "tooltip": false,
+    "on-click": "swaync-client -t"
+  }
+}

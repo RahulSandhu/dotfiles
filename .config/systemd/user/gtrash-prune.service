@@ -1,0 +1,9 @@
+[Unit]
+Description=Monthly gtrash prune - remove trash older than 30 days
+
+[Service]
+Type=oneshot
+ExecStart=/home/rahul/.config/gtrash/scripts/gtrash-prune.sh
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,9 @@
+.git
+docs
+images
+.gitignore
+.stow-local-ignore
+AGENTS.md
+LICENSE
+Makefile
+README.md

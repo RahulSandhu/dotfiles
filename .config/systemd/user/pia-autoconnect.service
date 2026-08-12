@@ -1,0 +1,16 @@
+[Unit]
+Description=PIA VPN Auto-Connect
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStartPre=/bin/bash -c 'for i in {1..15}; do /usr/local/bin/piactl get connectionstate &>/dev/null && break; sleep 1; done'
+ExecStartPre=/usr/local/bin/piactl background enable
+ExecStart=/usr/local/bin/piactl set protocol wireguard
+ExecStart=/usr/local/bin/piactl set region auto
+ExecStart=/usr/local/bin/piactl connect
+RemainAfterExit=yes
+
+[Install]
+WantedBy=default.target

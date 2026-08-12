@@ -1,0 +1,147 @@
+/* General settings */
+* {
+  font-family: "JetBrainsMono Nerd Font";
+}
+
+/* Root containers */
+.control-center{
+  background-color: #000000;
+  border: 5px solid #445c3d;
+  box-shadow: none;
+  border-radius: 0px;
+}
+
+/* Icons */
+.image {
+  margin-left: -3px;
+  margin-right: 8px;
+  min-width: 68px;
+  min-height: 68px;
+  border-radius: 7px;
+}
+
+/* Notifications */
+.notification {
+  background-color: #000000;
+  border: 5px solid #445c3d;
+  box-shadow: none;
+  border-radius: 0px;
+}
+.notification-default-action:hover,
+.notification-action:hover {
+  background-color: #000000;
+  border-radius: 0px;
+}
+.notification-group>button:hover {
+  background-color: #000000;
+  border-radius: 0px;
+}
+.notification-group {
+  background: transparent;
+  border: none;
+}
+.notification-group-headers {
+  font-weight: bold;
+}
+.notification-group-icon {
+  padding: 5px;
+}
+
+/* Widgets */
+.widget-buttons-grid {
+  font-size: 24pt;
+}
+.widget-buttons-grid>flowbox {
+  halign: center;
+}
+.widget-buttons-grid>flowbox>flowboxchild:hover {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+.widget-buttons-grid>flowbox>flowboxchild>button {
+  margin: 5px;
+  background-color: #000000;
+  color: #6e6e70;
+  border-radius: 0px;
+}
+.widget-buttons-grid>flowbox>flowboxchild>button:hover {
+  background-color: #000000;
+  color: #e0e0e0;
+}
+.widget-buttons-grid>flowbox>flowboxchild>button:checked {
+  color: #b8d9ae;
+}
+
+/* Sliders */
+.widget-volume,
+.widget-backlight {
+  font-size: 21pt;
+}
+.widget-volume scale trough,
+.widget-backlight scale trough {
+  background-color: #445c3d;
+  border-radius: 12px;
+}
+.widget-volume scale trough highlight,
+.widget-backlight scale trough highlight {
+  background-color: #b8d9ae;
+  border-radius: 12px;
+}
+.widget-volume scale slider,
+.widget-backlight scale slider {
+  background-color: #b8d9ae;
+}
+
+/* Audio widget */
+.widget-mpris>box>button,
+.widget-mpris-player,
+.widget-mpris-album-art {
+  border-radius: 0;
+  box-shadow: none;
+}
+.widget-mpris-player {
+  border: 2px solid #445c3d;
+}
+
+/* Hide close buttons */
+.close-button,
+.close-button:hover {
+  background: transparent;
+  color: transparent;
+}
+
+/* Remove scrollbar */
+scrolledwindow scrollbar.overlay-indicator {
+    opacity: 0;
+}
+
+/* Battery label widget */
+.widget-title {
+  padding: 12px 16px 16px 0;
+}
+.widget-title label {
+  font-weight: bold;
+  font-size: 16pt;
+  color: #e0e0e0;
+  padding-left: 16px;
+}
+.widget-title .control-center-clear-all {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  border-radius: 0px;
+  border: none;
+  background-color: #000000;
+  color: #6e6e70;
+  font-size: 24pt;
+}
+.widget-title .control-center-clear-all:hover {
+  background-color: #000000;
+  color: #b8d9ae;
+}
+.widget-title .control-center-clear-all label {
+  padding: 0;
+  margin: 0;
+}

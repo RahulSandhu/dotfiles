@@ -1,0 +1,12 @@
+autofirma-bin
+betterbird-bin
+clipse
+configuradorfnmt
+galendae-git
+gtrash-bin
+localsend-bin
+matlab-mpm
+swayosd-git
+wl-screenrec-git
+yay
+yay-debug

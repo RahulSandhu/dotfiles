@@ -79,10 +79,11 @@ The color scheme are inspired by the **Framework 12 Sage** laptop.
 | bash          | `.bash_logout`, `.bash_profile`, `.bashrc`           | Minimal interactive Bash shell setup.                                  |
 | clipse        | `.config/clipse/`                                    | Clipboard manager with history.                                        |
 | galendae      | `.config/galendae/`                                  | Calendar popup launched from Waybar.                                   |
+| git           | `.config/git/`                                       | Global hooks, aliases, and Git configuration overrides.                |
 | gtrash        | `.config/gtrash/`                                    | Trash wrapper; `rm` aliases put files in trash.                        |
 | kitty         | `.config/kitty/`                                     | Terminal emulator with custom colors and font.                         |
-| notse         | `.config/notse/`                                     | Terminal-based note-taking app.                                        |
 | neovim        | `.config/nvim/`                                      | Editor with Lazy.nvim plugin manager.                                  |
+| notse         | `.config/notse/`                                     | Terminal-based note-taking app.                                        |
 | npm           | `.npmrc`                                             | npm global install prefix.                                             |
 | opencode      | `.config/opencode/`                                  | OpenCode AI agent config and MCP servers.                              |
 | powerlevel10k | `.p10k.zsh`                                          | Zsh prompt theme.                                                      |

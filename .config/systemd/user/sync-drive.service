@@ -5,7 +5,7 @@ Wants=graphical-session.target
 
 [Service]
 Type=oneshot
-ExecStart=/home/rahul/desktop/projects/dotfiles/.config/rclone/scripts/sync-drive.sh
+ExecStart=%h/desktop/projects/dotfiles/.config/rclone/scripts/sync-drive.sh
 
 [Install]
 WantedBy=default.target

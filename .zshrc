@@ -77,7 +77,7 @@ alias ls='exa --icons=always'
 alias neofetch='fastfetch'
 alias tree='exa --icons=always --tree'
 
-alias matlab='env QT_QPA_PLATFORM=xcb /home/rahul/.local/share/MATLAB/R2025b/bin/matlab -nodesktop -nosplash'
+alias matlab='env QT_QPA_PLATFORM=xcb ${HOME}/.local/share/MATLAB/R2025b/bin/matlab -nodesktop -nosplash'
 
 # Gtrash integrations
 rm() { gtrash put "$@"; }

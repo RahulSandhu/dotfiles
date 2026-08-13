@@ -17,4 +17,4 @@ if [ -n "$ZEN_PID" ]; then
 fi
 
 # No existing window: open a new Kitty window running the launcher
-kitty --title "$TITLE" --directory /home/rahul bash "$LAUNCHER"
+kitty --title "$TITLE" --directory "$HOME" bash "$LAUNCHER"

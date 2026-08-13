@@ -8,9 +8,9 @@ notify-send \
     "Sync Started" "Syncing to Google Drive..."
 
 rclone \
-  --config /home/rahul/.config/rclone/rclone.conf \
+  --config ${HOME}/.config/rclone/rclone.conf \
   --log-level NOTICE \
-  --log-file=/home/rahul/.config/rclone/rclone.log \
+  --log-file=${HOME}/.config/rclone/rclone.log \
   --progress \
   --retries 3 \
   --max-backlog 999999 \
@@ -22,9 +22,9 @@ rclone \
   sync \
   --skip-links \
   --delete-during \
-  /home/rahul/ \
+  ${HOME}/ \
   "google drive:framework12" \
-  --filter-from=/home/rahul/.config/rclone/scripts/filters.txt \
+  --filter-from=${HOME}/.config/rclone/scripts/filters.txt \
   --delete-excluded \
   > /dev/null 2>&1
 

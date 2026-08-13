@@ -165,7 +165,7 @@ return {
 		vim.lsp.config("matlab_ls", {
 			settings = {
 				MATLAB = {
-					installPath = "/home/rahul/.local/share/MATLAB/R2025b",
+					installPath = vim.env.HOME .. "/.local/share/MATLAB/R2025b",
 					matlabConnectionTiming = "onStart",
 					indexWorkspace = false,
 					telemetry = false,

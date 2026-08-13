@@ -29,7 +29,7 @@
     "pdf": {
       "type": "local",
       "command": [
-        "/home/rahul/.config/opencode/mcp/pdf-extraction-server/.venv/bin/python",
+        "$HOME/.config/opencode/mcp/pdf-extraction-server/.venv/bin/python",
         "-m",
         "pdf_extraction"
       ],

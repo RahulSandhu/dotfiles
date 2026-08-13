@@ -1,5 +1,5 @@
 {
-  "notes_file": "/home/rahul/.config/notse/notes.json",
+  "notes_file": "$HOME/.config/notse/notes.json",
   "max_history": 100,
-  "theme_file": "/home/rahul/.config/notse/theme.json"
+  "theme_file": "$HOME/.config/notse/theme.json"
 }

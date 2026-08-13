@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Toggle the notse note-taking application in a kitty terminal
 NOTSE_BIN="$HOME/.local/share/go/bin/notse"
 
 if pgrep -f "kitty.*notse" > /dev/null; then

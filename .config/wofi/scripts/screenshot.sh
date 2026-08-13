@@ -1,30 +1,24 @@
 #!/bin/bash
 
-# Set the directory where screenshots will be saved
 DIR="$HOME/pictures/screenshots"
 mkdir -p "$DIR"
 
-# Define the cleanup function
 cleanup() {
     if [ -n "$WATCHER_PID" ]; then
         kill -- -"$WATCHER_PID" 2>/dev/null
     fi
 }
 
-# Set cleanup function on any exit
 trap cleanup EXIT INT TERM
 
-# Check for a valid argument first
 if [[ "$1" != "full" && "$1" != "area" ]]; then
     echo "Usage: $0 {full|area}"
     exit 1
 fi
 
-# Generate a timestamp-based base name for the screenshot files
 BASENAME="$(date +%Y%m%d_%H%M%S)"
 FILENAME="$DIR/$BASENAME.png"
 
-# Take the screenshot based on the argument
 CAPTURE_SUCCESS=false
 case "$1" in
     full)
@@ -35,7 +29,6 @@ case "$1" in
         ;;
 esac
 
-# If the capture was successful, proceed with the Swappy workflow
 if [ "$CAPTURE_SUCCESS" = true ]; then
     wl-copy < "$FILENAME"
     notify-send \

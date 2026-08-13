@@ -23,7 +23,7 @@ Personal Arch Linux configuration.
         </ul>
       </td>
       <td width="50%">
-        <img src="images/img_01.jpg" alt="Framework 12" width="100%">
+        <img src="images/framework.jpg" alt="Framework 12" width="100%">
       </td>
     </tr>
   </table>

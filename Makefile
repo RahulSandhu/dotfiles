@@ -1,7 +1,9 @@
-.PHONY: install sync-packages dry-run
+.PHONY: install sync-packages all
 
 STOW_DIR := $(dir $(CURDIR))
 STOW_PKG := $(notdir $(CURDIR))
+
+all: sync-packages install
 
 install:
 	stow --adopt -R -t $(HOME) -d $(STOW_DIR) $(STOW_PKG)

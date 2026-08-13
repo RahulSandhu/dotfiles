@@ -34,15 +34,42 @@ Personal Arch Linux configuration.
 The color scheme are inspired by the **Framework 12 Sage** laptop.
 
 <div align="center">
-
-| Color            | Hex       | Used for                                        |
-| ---------------- | --------- | ----------------------------------------------- |
-| Black            | `#000000` | Backgrounds (Sway windows, Waybar, Kitty)       |
-| Off-white        | `#e0e0e0` | Primary text                                    |
-| Sage green       | `#b8d9ae` | Accent, wallpaper, urgent/active states, cursor |
-| Olive green      | `#4a5d46` | Focused borders, indicators                     |
-| Muted gray-green | `#6e6e70` | Inactive/unfocused elements                     |
-
+  <table>
+    <thead>
+      <tr>
+        <th>Color</th>
+        <th>Hex</th>
+        <th>Used for</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Black</td>
+        <td><code>#000000</code></td>
+        <td>Backgrounds (Sway windows, Waybar, Kitty)</td>
+      </tr>
+      <tr>
+        <td>Off-white</td>
+        <td><code>#e0e0e0</code></td>
+        <td>Primary text</td>
+      </tr>
+      <tr>
+        <td>Sage green</td>
+        <td><code>#b8d9ae</code></td>
+        <td>Accent, wallpaper, urgent/active states, cursor</td>
+      </tr>
+      <tr>
+        <td>Olive green</td>
+        <td><code>#4a5d46</code></td>
+        <td>Focused borders, indicators</td>
+      </tr>
+      <tr>
+        <td>Muted gray-green</td>
+        <td><code>#6e6e70</code></td>
+        <td>Inactive/unfocused elements</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 ## Tools

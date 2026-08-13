@@ -29,11 +29,11 @@ Personal Arch Linux configuration.
   </table>
 </div>
 
-<div align="center">
-
 ## Color palette
 
 The color scheme are inspired by the **Framework 12 Sage** laptop.
+
+<div align="center">
 
 | Color            | Hex       | Used for                                        |
 | ---------------- | --------- | ----------------------------------------------- |

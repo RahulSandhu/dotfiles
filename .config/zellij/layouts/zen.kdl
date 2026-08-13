@@ -54,7 +54,7 @@ layout {
 
                 command_git_command "bash -c \"$HOME/.config/zellij/scripts/zjstatus/git.sh\""
                 command_git_format "#[fg=#3dd50a]{stdout}"
-                command_git_interval "5"
+                command_git_interval "2"
                 command_git_rendermode "static"
                 command_git_hideonemptystdout "true"
             }

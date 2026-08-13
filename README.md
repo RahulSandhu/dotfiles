@@ -29,6 +29,8 @@ Personal Arch Linux configuration.
   </table>
 </div>
 
+<div align="center">
+
 ## Color palette
 
 The color scheme are inspired by the **Framework 12 Sage** laptop.
@@ -40,6 +42,8 @@ The color scheme are inspired by the **Framework 12 Sage** laptop.
 | Sage green       | `#b8d9ae` | Accent, wallpaper, urgent/active states, cursor |
 | Olive green      | `#4a5d46` | Focused borders, indicators                     |
 | Muted gray-green | `#6e6e70` | Inactive/unfocused elements                     |
+
+</div>
 
 ## Tools
 

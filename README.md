@@ -6,15 +6,28 @@ Personal Arch Linux configuration.
 
 ## Specifications
 
-- **Laptop**: Framework 12 (Sage)
-- **CPU**: Intel Core Ultra Series 2
-- **GPU**: Intel Arc (integrated)
-- **Storage**: 1 TB NVMe SSD
-- **RAM**: 32 GB
-- **Display**: 12.2" 1920×1200
-- **OS**: Arch Linux (rolling)
-- **Shell**: Zsh
-- **Window manager**: Sway (Wayland)
+<div align="center">
+  <table>
+    <tr>
+      <td align="left" valign="top" width="50%">
+        <ul align="left">
+          <li><strong>Laptop</strong>: Framework 12 (Sage)</li>
+          <li><strong>CPU</strong>: Intel Core Ultra Series 2</li>
+          <li><strong>GPU</strong>: Intel Arc (integrated)</li>
+          <li><strong>Storage</strong>: 1 TB NVMe SSD</li>
+          <li><strong>RAM</strong>: 32 GB</li>
+          <li><strong>Display</strong>: 12.2" 1920×1200</li>
+          <li><strong>OS</strong>: Arch Linux (rolling)</li>
+          <li><strong>Shell</strong>: Zsh</li>
+          <li><strong>Window manager</strong>: Sway (Wayland)</li>
+        </ul>
+      </td>
+      <td width="50%">
+        <img src="images/img_01.jpg" alt="Framework 12" width="100%">
+      </td>
+    </tr>
+  </table>
+</div>
 
 ## Color palette
 

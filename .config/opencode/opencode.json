@@ -28,11 +28,7 @@
   "mcp": {
     "pdf": {
       "type": "local",
-      "command": [
-        "$HOME/.config/opencode/mcp/pdf-extraction-server/.venv/bin/python",
-        "-m",
-        "pdf_extraction"
-      ],
+      "command": ["{env:HOME}/.config/opencode/mcp/pdf-extraction-server/.venv/bin/python", "-m", "pdf_extraction"],
       "enabled": true
     },
     "consensus": {

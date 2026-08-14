@@ -132,7 +132,7 @@ monitor_nmcli() {
 # Run as monitor daemon
 monitor_mode() {
     # Single-instance lock
-    exec 9>/tmp/vpn_monitor.lock
+    exec 9>/tmp/vpn-monitor.lock
     flock -n 9 || exit 0
 
     # Kill other vpn-notif.sh instances if still running

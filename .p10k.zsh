@@ -44,7 +44,7 @@
     status                  # exit code of the last command
     command_execution_time  # duration of the last command
     background_jobs         # presence of background jobs
-    direnv                  # direnv status (https://direnv.net/)
+    # direnv                  # direnv status (https://direnv.net/)
     asdf                    # asdf version manager (https://github.com/asdf-vm/asdf)
     virtualenv              # python virtual environment (https://docs.python.org/3/library/venv.html)
     anaconda                # conda environment (https://conda.io/)
@@ -1694,12 +1694,11 @@
       prefix='/'
       local tmp=$cwd
       tail=(${(s:/:)tmp})
-      tail[1]=()
     else
       tail=(${(s:/:)cwd})
     fi
 
-    local sep="%F{$fg_default}/%f" content=''
+    local content=''
     local -i n=$#tail max=2
 
     content+="%F{$fg_anchor}${bold}${prefix}%b%f"
@@ -1707,20 +1706,27 @@
     if (( n <= max )); then
       local -i i=1
       for part in $tail; do
+        if (( i > 1 )) || [[ $prefix != '/' ]]; then
+          content+="%F{$fg_default}/%f"
+        fi
         if (( i == n )); then
-          content+="${sep}%F{$fg_anchor}${bold}${part}%b%f"
+          content+="%F{$fg_anchor}${bold}${part}%b%f"
         else
-          content+="${sep}%F{$fg_default}${part}%f"
+          content+="%F{$fg_default}${part}%f"
         fi
         (( i++ ))
       done
     else
-      content+="${sep}%F{$fg_shortened}...%f"
+      if [[ $prefix != '/' ]]; then
+        content+="%F{$fg_default}/%f"
+      fi
+      content+="%F{$fg_shortened}...%f"
       for ((i = n - max + 1; i <= n; i++)); do
+        content+="%F{$fg_default}/%f"
         if (( i == n )); then
-          content+="${sep}%F{$fg_anchor}${bold}${tail[i]}%b%f"
+          content+="%F{$fg_anchor}${bold}${tail[i]}%b%f"
         else
-          content+="${sep}%F{$fg_default}${tail[i]}%f"
+          content+="%F{$fg_default}${tail[i]}%f"
         fi
       done
     fi

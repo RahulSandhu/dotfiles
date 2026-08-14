@@ -56,7 +56,7 @@ return {
 				end,
 			},
 
-		mapping = require("core.keymaps").cmp(cmp),
+			mapping = require("core.keymaps").cmp(cmp),
 
 			formatting = {
 				fields = { "kind", "abbr", "menu" },

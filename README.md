@@ -79,9 +79,9 @@ The color scheme are inspired by the **Framework 12 Sage** laptop.
 | bash          | `.bash_logout`, `.bash_profile`, `.bashrc`           | Minimal interactive Bash shell setup.                                  |
 | clipse        | `.config/clipse/`                                    | Clipboard manager with history.                                        |
 | galendae      | `.config/galendae/`                                  | Calendar popup launched from Waybar.                                   |
-| git           | `.config/git/`                                       | Global hooks, aliases, and Git configuration overrides.                |
 | gtrash        | `.config/gtrash/`                                    | Trash wrapper; `rm` aliases put files in trash.                        |
 | kitty         | `.config/kitty/`                                     | Terminal emulator with custom colors and font.                         |
+| localsend     | `.config/localsend/`                                 | Headless LocalSend auto-receive via `localsend-cli` (Go fork).         |
 | neovim        | `.config/nvim/`                                      | Editor with Lazy.nvim plugin manager.                                  |
 | notse         | `.config/notse/`                                     | Terminal-based note-taking app.                                        |
 | npm           | `.npmrc`                                             | npm global install prefix.                                             |
@@ -97,7 +97,5 @@ The color scheme are inspired by the **Framework 12 Sage** laptop.
 | waybar        | `.config/waybar/`                                    | Top bar with workspaces, clock, and custom menu.                       |
 | wofi          | `.config/wofi/`                                      | Application launcher and screenshot/cast menus.                        |
 | XDG user dirs | `.config/user-dirs.dirs`, `.config/user-dirs.locale` | Default directory names.                                               |
-| yazi          | `.config/yazi/`                                      | Terminal file manager.                                                 |
 | zathura       | `.config/zathura/`                                   | Minimal PDF reader.                                                    |
-| zellij        | `.config/zellij/`                                    | Terminal multiplexer with custom layouts.                              |
 | zsh           | `.zshrc`, `.zprofile`                                | Main shell with Zinit, aliases, and Wayland env vars.                  |

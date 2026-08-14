@@ -12,7 +12,5 @@ return {
 			markdown = { "markdownlint" },
 			go = { "golangci-lint" },
 		}
-
-		-- nvim-lint already triggers on BufWritePost via the plugin's event.
 	end,
 }

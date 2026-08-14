@@ -10,7 +10,7 @@ return {
 			markdown = true,
 		},
 
-		-- Suggestion settings
+		-- Keymaps for Copilot
 		suggestion = {
 			enabled = true,
 			auto_trigger = true,

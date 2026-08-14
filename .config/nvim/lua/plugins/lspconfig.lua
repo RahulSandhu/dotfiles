@@ -31,6 +31,7 @@ return {
 				"matlab-language-server",
 				"gopls",
 				"rust_analyzer",
+				"ltex-ls-plus",
 				-- Formatters
 				"stylua",
 				"prettier",
@@ -58,6 +59,7 @@ return {
 				"matlab_ls",
 				"gopls",
 				"rust_analyzer",
+				"ltex_plus",
 			},
 		})
 
@@ -172,6 +174,16 @@ return {
 				},
 			},
 			filetypes = { "matlab" },
+		})
+
+		-- LTeX+ (LanguageTool) for grammar/spelling in prose and git commits
+		vim.lsp.config("ltex_plus", {
+			settings = {
+				ltex = {
+					language = "en-US",
+					checkFrequency = "edit",
+				},
+			},
 		})
 	end,
 }

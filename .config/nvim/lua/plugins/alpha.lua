@@ -4,6 +4,7 @@ return {
 	enabled = true,
 	event = "VimEnter",
 	config = function()
+		-- Check if alpha is installed
 		local alpha = require("alpha")
 		local dashboard = require("alpha.themes.dashboard")
 

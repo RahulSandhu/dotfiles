@@ -27,6 +27,12 @@
   box-shadow: none;
   border-radius: 0px;
 }
+
+/* Floating toast pop-up spacing */
+.floating-notifications .notification-row {
+  margin-top: 15px;
+  margin-right: 15px;
+}
 .notification-default-action:hover,
 .notification-action:hover {
   background-color: #000000;

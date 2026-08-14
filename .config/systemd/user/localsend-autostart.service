@@ -1,10 +1,10 @@
 [Unit]
-Description=Swaync Battery Label Updater
+Description=LocalSend Auto-Start
 After=graphical-session.target
 
 [Service]
 Type=simple
-ExecStart=%h/.config/swaync/scripts/battery-label.sh
+ExecStart=%h/.config/localsend/scripts/localsend-autostart.sh
 Restart=on-failure
 RestartSec=5
 

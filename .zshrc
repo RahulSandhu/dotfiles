@@ -77,8 +77,6 @@ alias ls='exa --icons=always'
 alias neofetch='fastfetch'
 alias tree='exa --icons=always --tree'
 
-alias matlab='env QT_QPA_PLATFORM=xcb ${HOME}/.local/share/MATLAB/R2025b/bin/matlab -nodesktop -nosplash'
-
 # Gtrash integrations
 rm() { gtrash put "$@"; }
 rm-list() { gtrash summary | sort; }
@@ -87,42 +85,6 @@ rm-find() { gtrash find; }
 rm-restore() { gtrash restore; }
 rm-restore-group() { gtrash restore-group; }
 rm-metafix() { gtrash metafix; }
-
-# Environments activation
-function chpwd() {
-  # Python Deactivation
-  if [[ -n "$VIRTUAL_ENV" ]]; then
-    local env_root="$(dirname "$VIRTUAL_ENV")"
-    if [[ "$PWD"/ != "$env_root"/* && "$PWD" != "$env_root" ]]; then
-      deactivate
-    fi
-  fi
-
-  # Python activation
-  if [[ -z "$VIRTUAL_ENV" ]]; then
-    local dir="$PWD"
-    while [[ "$dir" != "/" ]]; do
-      if [[ -f "$dir/.venv/bin/activate" ]]; then
-        source "$dir/.venv/bin/activate"
-        break
-      fi
-      dir="$(dirname "$dir")"
-    done
-  fi
-
-  # Update zen-shell-cwd
-  [[ "$ZELLIJ_SESSION_NAME" == "zen" && "$ZELLIJ_PANE_ID" == "2" ]] && echo "$PWD" > /tmp/zen-shell-cwd
-}
-
-# Yazi persistent cwd
-function yazi() {
-    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-    command yazi "$@" --cwd-file="$tmp"
-    if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-        cd -- "$cwd"
-    fi
-    rm -f -- "$tmp"
-}
 
 # Rbenv
 eval "$(rbenv init - zsh)"
@@ -133,6 +95,9 @@ eval "$(fzf --zsh)"
 
 # Zoxide 
 eval "$(zoxide init --cmd cd zsh)"
+
+# Direnv
+eval "$(direnv hook zsh)"
 
 # Powerlevel10k prompt configuration
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

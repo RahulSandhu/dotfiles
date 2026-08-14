@@ -34,4 +34,4 @@ require("lazy").setup("plugins", {
 -- Load core settings and modules that are not handled by lazy
 require("core.options")
 require("core.autocommands")
-require("core.keymaps").setup()
+require("core.keymaps")

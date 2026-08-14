@@ -1,0 +1,12 @@
+[Unit]
+Description=Swaync Battery Label Updater
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=%h/.config/swaync/scripts/battery-status.sh
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target

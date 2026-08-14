@@ -14,9 +14,9 @@ set $up k
 set $right l
 
 # Gaps 
-gaps inner 10
-gaps outer 10
-gaps top 10
+gaps inner 0
+gaps outer 0
+gaps top 0
 
 # Borders
 default_border pixel 5
@@ -57,7 +57,7 @@ input type:keyboard {
 
 # Waybar and Swaync
 exec_always bash -c 'pkill waybar; waybar &'
-# exec_always bash -c 'pkill swaync; swaync &'
+exec_always bash -c 'pkill swaync; swaync &'
 exec_always bash -c 'pkill swayosd-server; swayosd-server -s ~/.config/swayosd/style.css &'
 
 # Scripts
@@ -66,7 +66,7 @@ exec python ~/.config/sway/scripts/workspaces.py
 
 # Daemons
 exec_always --no-startup-id ~/.config/swaync/scripts/battery.sh
-exec_always --no-startup-id ~/.config/swaync/scripts/vpn-notif.sh
+exec_always --no-startup-id ~/.config/swaync/scripts/vpn.sh --monitor
 exec clipse -listen
 
 ### Applications ###
@@ -79,7 +79,7 @@ bindsym $mod+c exec ~/.config/clipse/scripts/toggle-clipboard.sh
 bindsym $mod+n exec ~/.config/notse/scripts/toggle-notes.sh
 bindsym $mod+$smod+e exec ~/.config/swaync/scripts/keyboard.sh
 bindsym $mod+$smod+p exec ~/.config/sway/scripts/color-picker.sh
-bindsym $mod+t exec ~/.config/sway/scripts/betterbird-toggle.sh
+bindsym $mod+m exec ~/.config/betterbird/scripts/toggle-betterbird.sh
 
 # Specific applications layout
 for_window [app_id="galendae"] move position 765 0
@@ -222,7 +222,7 @@ bindsym --locked XF86RFKill exec nmcli radio all toggle
 bindsym --locked Print exec ~/.config/wofi/scripts/toggle-menu.sh capture
 
 # F12: Favorites
-bindsym --locked XF86AudioMedia exec ~/.config/zellij/scripts/zen-toggle.sh
+bindsym --locked XF86AudioMedia exec ~/.config/herdr/scripts/toggle-herdr.sh
 
 ### Others ###
 

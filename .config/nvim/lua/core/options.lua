@@ -1,11 +1,6 @@
 -- For conciseness
 local opt = vim.opt
 
--- Force Go tooling to respect custom GOPATH even when nvim is launched
--- from a GUI/shortcut that never sourced .zshrc.
-vim.env.GOPATH = vim.fn.expand("~/.local/share/go")
-vim.env.GOMODCACHE = vim.env.GOPATH .. "/pkg/mod"
-
 -- Enable true colors for better terminal color support
 opt.termguicolors = true
 
@@ -34,7 +29,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 
 -- Define the highlight group for gitsigns current line blame
 vim.api.nvim_set_hl(0, "GitSignsCurrentLineBlame", {
-	fg = "#445c3d",
+	fg = "#6e6e70",
 	italic = true,
 })
 

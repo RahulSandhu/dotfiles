@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CONFIG_FILE="${HOME}/.config/swaync/config.json"
-CACHE_FILE="/tmp/swaync_battery_label_cache"
+CACHE_FILE="/tmp/swaync-battery-status"
 
 get_icon() {
     local pct=$1

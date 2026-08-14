@@ -15,6 +15,9 @@ return {
 				stylua = {
 					command = vim.fn.expand("~/.local/share/nvim/mason/bin/stylua"),
 				},
+				prettier = {
+					prepend_args = { "--print-width", "200" },
+				},
 			},
 
 			-- Formatters by filetype

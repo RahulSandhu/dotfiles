@@ -80,6 +80,7 @@ The color scheme are inspired by the **Framework 12 Sage** laptop.
 | clipse        | `.config/clipse/`                                    | Clipboard manager with history.                                        |
 | galendae      | `.config/galendae/`                                  | Calendar popup launched from Waybar.                                   |
 | gtrash        | `.config/gtrash/`                                    | Trash wrapper; `rm` aliases put files in trash.                        |
+| herdr         | `.config/herdr/`                                     | Agent-native terminal multiplexer for AI coding agents.                |
 | kitty         | `.config/kitty/`                                     | Terminal emulator with custom colors and font.                         |
 | localsend     | `.config/localsend/`                                 | Headless LocalSend auto-receive via `localsend-cli` (Go fork).         |
 | neovim        | `.config/nvim/`                                      | Editor with Lazy.nvim plugin manager.                                  |

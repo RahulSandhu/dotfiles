@@ -9,6 +9,7 @@ base-devel
 bat
 biber
 bitwarden
+bluetui
 bluez
 bluez-utils
 brightnessctl
@@ -21,7 +22,6 @@ composer
 cronie
 cups
 dbeaver
-direnv
 dnsmasq
 docker
 docker-compose
@@ -145,6 +145,7 @@ simple-scan
 sof-firmware
 speedtest-cli
 sshpass
+steam
 stow
 strace
 sudo

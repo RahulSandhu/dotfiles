@@ -36,6 +36,7 @@ return {
 				"stylua",
 				"prettier",
 				"ruff",
+				"air",
 				"gofumpt",
 				"goimports",
 				"latexindent",

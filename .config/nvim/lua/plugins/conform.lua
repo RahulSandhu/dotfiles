@@ -29,6 +29,9 @@ return {
 				tex = { "latexindent" },
 				go = { "goimports", "gofumpt" },
 				rust = { "rustfmt" },
+				r = { "air" },
+				rmd = { "air" },
+				quarto = { "air" },
 			},
 
 			-- Format on save

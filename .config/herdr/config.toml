@@ -9,7 +9,7 @@ onboarding = false
 # Built-in themes: catppuccin, terminal, tokyo-night, dracula, nord,
 #                  gruvbox, one-dark, solarized, kanagawa, rose-pine,
 #                  vesper
-name = "terminal"
+name = "vesper"
 
 # Follow host terminal light/dark appearance and switch Herdr UI themes.
 # Existing manual behavior is unchanged unless this is true.
@@ -63,13 +63,13 @@ prefix = "ctrl+s"
 detach = "prefix+d"
 # reload_config = "prefix+shift+r"
 # open_notification_target = "prefix+o"
-# workspace_picker = "prefix+w"
+# workspace_picker = "prefix+shift+w"
 # goto = "prefix+g"
-# new_workspace = "prefix+shift+n"
+new_workspace = "prefix+w"
 # new_worktree = "prefix+shift+g"
 # open_worktree = ""    # optional, unset by default
 # remove_worktree = ""  # optional, unset by default; opens confirmation
-# rename_workspace = "prefix+shift+w"
+# rename_workspace = ""
 # close_workspace = "prefix+shift+d"
 # previous_workspace = "" # optional, unset by default
 # next_workspace = ""     # optional, unset by default
@@ -77,19 +77,19 @@ detach = "prefix+d"
 # next_agent = ""         # optional, unset by default
 # focus_agent = ""        # optional indexed binding, e.g. "prefix+alt+1..9"
 # remote_image_paste = "ctrl+v" # only active in herdr --remote; empty disables raw-key image paste
-# new_tab = "prefix+c"
-# rename_tab = "prefix+shift+t"
-# previous_tab = "prefix+p"
-# next_tab = "prefix+n"
+new_tab = "prefix+t"
+# rename_tab = ""
+previous_tab = "prefix+["
+next_tab = "prefix+]"
 # switch_tab = "prefix+1..9"
 # switch_workspace = ""   # optional indexed binding, e.g. "prefix+shift+1..9"
 # close_tab = "prefix+shift+x"
 # rename_pane = "prefix+shift+p"
 # edit_scrollback = "prefix+e"
-# focus_pane_left = "prefix+h"
-# focus_pane_down = "prefix+j"
-# focus_pane_up = "prefix+k"
-# focus_pane_right = "prefix+l"
+focus_pane_left = "alt+h"
+focus_pane_down = "alt+j"
+focus_pane_up = "alt+k"
+focus_pane_right = "alt+l"
 # cycle_pane_next = "prefix+tab"
 # cycle_pane_previous = "prefix+shift+tab"
 # last_pane = ""          # optional, unset by default; bind e.g. "prefix+tab" for global back-and-forth
@@ -125,8 +125,8 @@ detach = "prefix+d"
 # Legacy indexed shortcut config is still parsed for compatibility.
 # Prefer switch_tab, switch_workspace, and focus_agent for new configs.
 [keys.indexed]
-tabs = "alt"       # e.g. "ctrl" makes ctrl+1..9 switch tabs directly
-# workspaces = "" # e.g. "ctrl+shift" makes ctrl+shift+1..9 switch workspaces directly
+tabs = "ctrl"       # e.g. "ctrl" makes ctrl+1..9 switch tabs directly
+workspaces = "alt" # e.g. "ctrl+shift" makes ctrl+shift+1..9 switch workspaces directly
 # agents = ""     # e.g. "alt" makes alt+1..9 focus agent rows directly
 
 # [worktrees]
@@ -187,7 +187,7 @@ tabs = "alt"       # e.g. "ctrl" makes ctrl+1..9 switch tabs directly
 # prompt_new_tab_name = true
 
 # Ask for a workspace name before interactive creation.
-# prompt_new_workspace_name = false
+prompt_new_workspace_name = true
 
 # Draw borders around split panes.
 # pane_borders = true
@@ -252,7 +252,7 @@ delivery = "terminal"
 # position = "bottom-right"
 
 [ui.toast.clipboard]
-# enabled = true
+enabled = false
 # position = "bottom-center"
 
 # Play sounds when agents change state in background workspaces

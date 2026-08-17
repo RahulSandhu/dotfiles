@@ -96,8 +96,28 @@ eval "$(fzf --zsh)"
 # Zoxide 
 eval "$(zoxide init --cmd cd zsh)"
 
-# Direnv
-eval "$(direnv hook zsh)"
+# Environments activation
+function chpwd() {
+  # Python deactivation
+  if [[ -n "$VIRTUAL_ENV" ]]; then
+    local env_root="$(dirname "$VIRTUAL_ENV")"
+    if [[ "$PWD"/ != "$env_root"/* && "$PWD" != "$env_root" ]]; then
+      deactivate
+    fi
+  fi
+
+  # Python activation
+  if [[ -z "$VIRTUAL_ENV" ]]; then
+    local dir="$PWD"
+    while [[ "$dir" != "/" ]]; do
+      if [[ -f "$dir/.venv/bin/activate" ]]; then
+        source "$dir/.venv/bin/activate"
+        break
+      fi
+      dir="$(dirname "$dir")"
+    done
+  fi
+}
 
 # Powerlevel10k prompt configuration
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

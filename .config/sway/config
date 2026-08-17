@@ -79,6 +79,7 @@ bindsym $mod+c exec ~/.config/clipse/scripts/toggle-clipboard.sh
 bindsym $mod+n exec ~/.config/notse/scripts/toggle-notes.sh
 bindsym $mod+$smod+e exec ~/.config/swaync/scripts/keyboard.sh
 bindsym $mod+$smod+p exec ~/.config/sway/scripts/color-picker.sh
+bindsym $mod+period exec ~/.config/wofi/scripts/emoji-picker.sh
 bindsym $mod+m exec ~/.config/betterbird/scripts/toggle-betterbird.sh
 
 # Specific applications layout

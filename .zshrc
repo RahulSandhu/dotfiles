@@ -76,6 +76,9 @@ alias cat='bat'
 alias ls='exa --icons=always'
 alias neofetch='fastfetch'
 alias tree='exa --icons=always --tree'
+alias lsend='lsq send --port 53318'
+alias lreceive='lsq receive --port 53318'
+alias lscan='lsq list --port 53318'
 
 # Gtrash integrations
 rm() { gtrash put "$@"; }

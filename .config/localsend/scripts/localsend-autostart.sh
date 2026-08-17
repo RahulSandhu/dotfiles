@@ -1,3 +1,3 @@
 #!/bin/bash
 
-localsend-cli recv -d ~/downloads -n "archlinux"
+~/.local/bin/lsq receive --dest ~/downloads --yes

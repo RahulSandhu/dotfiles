@@ -1,14 +1,21 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "ollama-cloud/kimi-k2.6",
+  "model": "opencode-go/deepseek-v4-pro",
   "default_agent": "plan",
+  "provider": {
+    "opencode-go": {
+      "options": {
+        "apiKey": "{env:OPENCODE_GO_KEY}"
+      }
+    }
+  },
 
   "agent": {
     "build": {
-      "model": "ollama-cloud/kimi-k2.7-code"
+      "model": "opencode-go/deepseek-v4-flash"
     },
     "plan": {
-      "model": "ollama-cloud/kimi-k2.6"
+      "model": "opencode-go/deepseek-v4-pro"
     }
   },
 
@@ -26,15 +33,22 @@
   "plugin": ["superpowers@git+https://github.com/obra/superpowers.git"],
 
   "mcp": {
-    "pdf": {
+    "brave-search": {
       "type": "local",
-      "command": ["{env:HOME}/.config/opencode/mcp/pdf-extraction-server/.venv/bin/python", "-m", "pdf_extraction"],
-      "enabled": true
+      "command": ["npx", "-y", "@modelcontextprotocol/server-brave-search"],
+      "enabled": true,
+      "environment": {
+        "BRAVE_API_KEY": "{env:BRAVE_SEARCH_KEY}"
+      }
     },
     "consensus": {
       "type": "remote",
       "url": "https://mcp.consensus.app/mcp",
-      "enabled": true
+      "enabled": true,
+      "oauth": false,
+      "headers": {
+        "Authorization": "Bearer {env:CONSENSUS_KEY}"
+      }
     },
     "github": {
       "type": "remote",
@@ -42,8 +56,18 @@
       "enabled": true,
       "oauth": false,
       "headers": {
-        "Authorization": "Bearer {env:GITHUB_TOKEN}"
+        "Authorization": "Bearer {env:GITHUB_KEY}"
       }
+    },
+    "pdf-extraction": {
+      "type": "local",
+      "command": ["{env:HOME}/.config/opencode/mcp/pdf-extraction-server/.venv/bin/python", "-m", "pdf_extraction"],
+      "enabled": true
+    },
+    "sqlite": {
+      "type": "local",
+      "command": ["{env:HOME}/.config/opencode/mcp/sqlite-server/.venv/bin/python", "-m", "sqlite_mcp"],
+      "enabled": true
     }
   }
 }

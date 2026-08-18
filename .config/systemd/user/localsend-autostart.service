@@ -4,7 +4,7 @@ After=graphical-session.target
 
 [Service]
 Type=simple
-ExecStart=%h/.config/localsend/scripts/localsend-autostart.sh
+ExecStart=%h/.config/lsq/scripts/localsend-autostart.sh
 Restart=on-failure
 RestartSec=5
 

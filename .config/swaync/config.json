@@ -4,7 +4,7 @@
   "positionY": "top",
   "cssPriority": "user",
   "control-center-width": 550,
-  "control-center-height": 800,
+  "control-center-height": 1000,
   "control-center-margin-top": 0,
   "control-center-margin-bottom": 0,
   "control-center-margin-right": 0,
@@ -88,7 +88,7 @@
       ]
     },
     "title": {
-      "text": "󰁻 21%",
+      "text": "󰁻 3%",
       "clear-all-button": true,
       "button-text": "󰎟"
     }

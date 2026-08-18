@@ -82,7 +82,7 @@ The color scheme are inspired by the **Framework 12 Sage** laptop.
 | gtrash        | `.config/gtrash/`                                    | Trash wrapper; `rm` aliases put files in trash.                        |
 | herdr         | `.config/herdr/`                                     | Agent-native terminal multiplexer for AI coding agents.                |
 | kitty         | `.config/kitty/`                                     | Terminal emulator with custom colors and font.                         |
-| localsend     | `.config/localsend/`                                 | Headless LocalSend auto-receive via `localsend-cli` (Go fork).         |
+| lsq           | `.config/lsq/`                                       | Headless LocalSend auto-receive via `lsq` (Rust CLI).                  |
 | neovim        | `.config/nvim/`                                      | Editor with Lazy.nvim plugin manager.                                  |
 | notse         | `.config/notse/`                                     | Terminal-based note-taking app.                                        |
 | npm           | `.npmrc`                                             | npm global install prefix.                                             |

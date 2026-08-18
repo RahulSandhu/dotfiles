@@ -97,7 +97,6 @@ npm
 ntfs-3g
 ntfsprogs
 nwg-displays
-ollama
 openbsd-netcat
 opencode
 openconnect
@@ -145,7 +144,6 @@ simple-scan
 sof-firmware
 speedtest-cli
 sshpass
-steam
 stow
 strace
 sudo

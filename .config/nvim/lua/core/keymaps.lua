@@ -7,7 +7,7 @@ local function set_keymap(mode, keybinding, command, desc, opts)
 	vim.keymap.set(mode, keybinding, command, opts)
 end
 
--- NeoVim settings
+-- General Settings
 set_keymap("n", "<leader>v", "", "Vim settings")
 set_keymap("n", "<leader>vS", ":w<cr>:source %<cr>", "Source file")
 set_keymap("n", "<leader>vh", ':execute "h " . expand("<cword>")<cr>', "Help word")
@@ -19,6 +19,13 @@ set_keymap("n", "<leader>wq", ":wq<CR>", "Save and quit")
 set_keymap("n", "<leader>qq", ":q!<CR>", "Quit without saving")
 set_keymap("n", "<leader>ww", ":w<CR>", "Save")
 set_keymap("n", "<C-s>", "<cmd>:update<cr><esc>", "Save")
+
+set_keymap("n", "<leader>t", "", "Tabs")
+set_keymap("n", "<leader>to", "<cmd>tabnew<CR>", "Open new tab")
+set_keymap("n", "<leader>tx", "<cmd>tabclose<CR>", "Close tab")
+set_keymap("n", "<leader>tn", "<cmd>tabn<CR>", "Next tab")
+set_keymap("n", "<leader>tp", "<cmd>tabp<CR>", "Previous tab")
+set_keymap("n", "<leader>tO", "<cmd>tabnew %<CR>", "Open buffer in new tab")
 
 set_keymap("n", "gx", ":!open <c-r><c-a><CR>", "Open URL under cursor")
 set_keymap("n", "<leader>hc", ":nohl<CR>", "Clear highlights")
@@ -73,16 +80,6 @@ function M.cmp(cmp)
 	})
 end
 
--- Copilot
-M.copilot = {
-	accept = "<C-a>",
-	accept_word = false,
-	accept_line = false,
-	next = "<M-]>",
-	prev = "<M-[>",
-	dismiss = "<C-]>",
-}
-
 -- Gitsigns
 set_keymap("n", "]h", function()
 	require("gitsigns").nav_hunk("next")
@@ -99,6 +96,22 @@ end, "Reset hunk")
 set_keymap("n", "<leader>hp", function()
 	require("gitsigns").preview_hunk()
 end, "Preview hunk")
+
+-- Iron
+set_keymap("n", "<leader>r", "", "REPL")
+set_keymap("n", "<leader>rr", ":IronRepl<cr>", "Toggle REPL")
+set_keymap("n", "<leader>rf", ":IronFocus<cr>", "Focus REPL")
+set_keymap("n", "<leader>rh", ":IronHide<cr>", "Hide REPL")
+set_keymap("n", "<leader>rR", ":IronRestart<cr>", "Restart REPL")
+set_keymap("n", "<leader>rl", function()
+	require("iron.core").send_line()
+end, "Send line")
+set_keymap("n", "<leader>rp", function()
+	require("iron.core").send_paragraph()
+end, "Send paragraph")
+set_keymap("x", "<leader>rs", function()
+	require("iron.core").visual_send()
+end, "Send selection")
 
 -- LSP
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -118,7 +131,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
--- Markdown preview
+-- MarkdownPreview
 set_keymap("n", "<leader>mp", ":MarkdownPreviewToggle<CR>", "Toggle markdown preview")
 
 -- Multiline
@@ -134,12 +147,12 @@ M.multiline = {
 
 -- Surround
 M.surround = {
-	{ "ys", "<Plug>(nvim-surround-normal)", mode = "n", expr = true, desc = "Add surround" },
-	{ "yss", "<Plug>(nvim-surround-normal-cur)", mode = "n", expr = true, desc = "Add surround around line" },
-	{ "ds", "<Plug>(nvim-surround-delete)", mode = "n", expr = true, desc = "Delete surround" },
-	{ "cs", "<Plug>(nvim-surround-change)", mode = "n", expr = true, desc = "Change surround" },
-	{ "S", "<Plug>(nvim-surround-visual)", mode = "x", expr = true, desc = "Add surround to selection" },
-	{ "gS", "<Plug>(nvim-surround-visual-line)", mode = "x", expr = true, desc = "Add line surround to selection" },
+	{ "ys", "<Plug>(nvim-surround-normal)", mode = "n", desc = "Add surround" },
+	{ "yss", "<Plug>(nvim-surround-normal-cur)", mode = "n", desc = "Add surround around line" },
+	{ "ds", "<Plug>(nvim-surround-delete)", mode = "n", desc = "Delete surround" },
+	{ "cs", "<Plug>(nvim-surround-change)", mode = "n", desc = "Change surround" },
+	{ "S", "<Plug>(nvim-surround-visual)", mode = "x", desc = "Add surround to selection" },
+	{ "gS", "<Plug>(nvim-surround-visual-line)", mode = "x", desc = "Add line surround to selection" },
 }
 
 -- Telescope

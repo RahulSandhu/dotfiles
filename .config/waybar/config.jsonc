@@ -23,7 +23,7 @@
 
   // Custom menu module
   "custom/menu": {
-    "exec": "~/.config/waybar/scripts/status.sh",
+    "exec": "~/.config/waybar/scripts/notif-status.sh",
     "interval": 2,
     "tooltip": false,
     "on-click": "swaync-client -t"

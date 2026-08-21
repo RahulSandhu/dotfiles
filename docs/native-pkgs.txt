@@ -88,6 +88,7 @@ man-db
 mariadb-clients
 mariadb-libs
 mesa
+mpd
 neovim
 networkmanager
 networkmanager-openvpn
@@ -131,6 +132,7 @@ rclone
 reflector
 ripgrep
 rkhunter
+rmpc
 rsync
 ruby
 ruby-build

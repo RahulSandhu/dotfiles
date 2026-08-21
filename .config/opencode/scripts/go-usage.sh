@@ -11,7 +11,14 @@ WARN_CENTS=150
 LIMIT_CENTS=200
 
 usage=$(sqlite3 -readonly "$DB" \
-    "SELECT COALESCE(SUM(json_extract(data,'\$.cost')),0)
+    "SELECT COALESCE(SUM(
+        json_extract(data,'\$.cost') *
+        CASE json_extract(data,'\$.modelID')
+            WHEN 'deepseek-v4-pro'   THEN 4
+            WHEN 'deepseek-v4-flash' THEN 2
+            ELSE 1
+        END
+     ),0)
      FROM message
      WHERE json_extract(data,'\$.time.created') >= $DAY_START_MS
        AND json_extract(data,'\$.providerID') = 'opencode-go';")

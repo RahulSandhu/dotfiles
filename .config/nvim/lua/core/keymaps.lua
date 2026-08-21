@@ -34,6 +34,7 @@ set_keymap("v", ">", ">gv", "Indent and keep selection")
 set_keymap("v", "<", "<gv", "Dedent and keep selection")
 
 set_keymap("i", "jk", "<ESC>", "Exit insert mode")
+set_keymap("t", "jk", "<C-\\><C-n>", "Exit terminal mode")
 
 -- Alpha
 set_keymap("n", "<leader>a", ":Alpha<cr>", "Open [a]lpha dashboard")

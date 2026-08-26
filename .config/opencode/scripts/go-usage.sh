@@ -16,7 +16,7 @@ FLASH_DAILY_CENTS=$(awk -v m="$FLASH_MONTHLY" -v d="$DAYS" 'BEGIN { printf "%d",
 PRO_WARN_CENTS=$(awk -v c="$PRO_DAILY_CENTS" -v p="$WARN_PCT" 'BEGIN { printf "%d", c * p / 100 + 0.5 }')
 FLASH_WARN_CENTS=$(awk -v c="$FLASH_DAILY_CENTS" -v p="$WARN_PCT" 'BEGIN { printf "%d", c * p / 100 + 0.5 }')
 
-read -r pro_used flash_used < <(sqlite3 -readonly "$DB" "
+IFS='|' read -r pro_used flash_used < <(sqlite3 -readonly "$DB" "
     SELECT COALESCE(SUM(CASE WHEN json_extract(data,'\$.modelID')='deepseek-v4-pro'
                              THEN json_extract(data,'\$.cost') END),0),
            COALESCE(SUM(CASE WHEN json_extract(data,'\$.modelID')='deepseek-v4-flash'

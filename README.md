@@ -83,6 +83,7 @@ The color scheme are inspired by the **Framework 12 Sage** laptop.
 | herdr         | `.config/herdr/`                                     | Agent-native terminal multiplexer for AI coding agents.                |
 | kitty         | `.config/kitty/`                                     | Terminal emulator with custom colors and font.                         |
 | lsq           | `.config/lsq/`                                       | Headless LocalSend auto-receive via `lsq` (Rust CLI).                  |
+| mpd           | `.config/mpd/`                                       | Music Player Daemon.                                                   |
 | neovim        | `.config/nvim/`                                      | Editor with Lazy.nvim plugin manager.                                  |
 | notse         | `.config/notse/`                                     | Terminal-based note-taking app.                                        |
 | npm           | `.npmrc`                                             | npm global install prefix.                                             |

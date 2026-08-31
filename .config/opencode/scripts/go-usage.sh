@@ -63,26 +63,9 @@ fmt_cents() {
     awk -v c="$1" 'BEGIN { printf "$%.2f", c / 100 }'
 }
 
-fmt_pct() {
-    awk -v c="$1" -v d="$2" 'BEGIN { printf "%d%%", c / d * 100 + 0.5 }'
-}
-
-pro_suffix=""
-[ "$pro_level" != ok ] && pro_suffix=" — $pro_level"
-flash_suffix=""
-[ "$flash_level" != ok ] && flash_suffix=" — $flash_level"
-vision_suffix=""
-[ "$vision_level" != ok ] && vision_suffix=" — $vision_level"
-
-pro_line=$(printf '%-6s %s/%s  (%s)%s' \
-    "pro" "$(fmt_cents "$pro_cents")" "$(fmt_cents "$PRO_DAILY_CENTS")" \
-    "$(fmt_pct "$pro_cents" "$PRO_DAILY_CENTS")" "$pro_suffix")
-flash_line=$(printf '%-6s %s/%s  (%s)%s' \
-    "flash" "$(fmt_cents "$flash_cents")" "$(fmt_cents "$FLASH_DAILY_CENTS")" \
-    "$(fmt_pct "$flash_cents" "$FLASH_DAILY_CENTS")" "$flash_suffix")
-vision_line=$(printf '%-6s %s/%s  (%s)%s' \
-    "vision" "$(fmt_cents "$vision_cents")" "$(fmt_cents "$VISION_DAILY_CENTS")" \
-    "$(fmt_pct "$vision_cents" "$VISION_DAILY_CENTS")" "$vision_suffix")
+pro_line=$(printf '%-6s %s/%s' "pro" "$(fmt_cents "$pro_cents")" "$(fmt_cents "$PRO_DAILY_CENTS")")
+flash_line=$(printf '%-6s %s/%s' "flash" "$(fmt_cents "$flash_cents")" "$(fmt_cents "$FLASH_DAILY_CENTS")")
+vision_line=$(printf '%-6s %s/%s' "vision" "$(fmt_cents "$vision_cents")" "$(fmt_cents "$VISION_DAILY_CENTS")")
 
 body=$(printf '%s\n%s\n%s' "$pro_line" "$flash_line" "$vision_line")
 

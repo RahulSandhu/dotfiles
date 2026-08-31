@@ -8,6 +8,7 @@ DAY_START_MS=$(date -d 'today 00:00:00' +%s%3N)
 
 PRO_MONTHLY=15
 FLASH_MONTHLY=30
+VISION_MONTHLY=15
 DAYS=30
 WARN_PCT=75
 
@@ -16,10 +17,15 @@ FLASH_DAILY_CENTS=$(awk -v m="$FLASH_MONTHLY" -v d="$DAYS" 'BEGIN { printf "%d",
 PRO_WARN_CENTS=$(awk -v c="$PRO_DAILY_CENTS" -v p="$WARN_PCT" 'BEGIN { printf "%d", c * p / 100 + 0.5 }')
 FLASH_WARN_CENTS=$(awk -v c="$FLASH_DAILY_CENTS" -v p="$WARN_PCT" 'BEGIN { printf "%d", c * p / 100 + 0.5 }')
 
-IFS='|' read -r pro_used flash_used < <(sqlite3 -readonly "$DB" "
+VISION_DAILY_CENTS=$(awk -v m="$VISION_MONTHLY" -v d="$DAYS" 'BEGIN { printf "%d", m / d * 100 + 0.5 }')
+VISION_WARN_CENTS=$(awk -v c="$VISION_DAILY_CENTS" -v p="$WARN_PCT" 'BEGIN { printf "%d", c * p / 100 + 0.5 }')
+
+IFS='|' read -r pro_used flash_used vision_used < <(sqlite3 -readonly "$DB" "
     SELECT COALESCE(SUM(CASE WHEN json_extract(data,'\$.modelID')='deepseek-v4-pro'
                              THEN json_extract(data,'\$.cost') END),0),
            COALESCE(SUM(CASE WHEN json_extract(data,'\$.modelID')='deepseek-v4-flash'
+                             THEN json_extract(data,'\$.cost') END),0),
+           COALESCE(SUM(CASE WHEN json_extract(data,'\$.modelID')='deepseek-v4-flash-vision-exp'
                              THEN json_extract(data,'\$.cost') END),0)
     FROM message
     WHERE json_extract(data,'\$.time.created') >= $DAY_START_MS
@@ -27,6 +33,7 @@ IFS='|' read -r pro_used flash_used < <(sqlite3 -readonly "$DB" "
 
 pro_cents=$(awk -v u="$pro_used" 'BEGIN { printf "%d", u * 100 + 0.5 }')
 flash_cents=$(awk -v u="$flash_used" 'BEGIN { printf "%d", u * 100 + 0.5 }')
+vision_cents=$(awk -v u="$vision_used" 'BEGIN { printf "%d", u * 100 + 0.5 }')
 
 level_of() {
     if [ "$1" -ge "$3" ]; then
@@ -40,6 +47,7 @@ level_of() {
 
 pro_level=$(level_of "$pro_cents" "$PRO_WARN_CENTS" "$PRO_DAILY_CENTS")
 flash_level=$(level_of "$flash_cents" "$FLASH_WARN_CENTS" "$FLASH_DAILY_CENTS")
+vision_level=$(level_of "$vision_cents" "$VISION_WARN_CENTS" "$VISION_DAILY_CENTS")
 
 notify() {
     /usr/bin/notify-send \
@@ -63,6 +71,8 @@ pro_suffix=""
 [ "$pro_level" != ok ] && pro_suffix=" — $pro_level"
 flash_suffix=""
 [ "$flash_level" != ok ] && flash_suffix=" — $flash_level"
+vision_suffix=""
+[ "$vision_level" != ok ] && vision_suffix=" — $vision_level"
 
 pro_line=$(printf '%-6s %s/%s  (%s)%s' \
     "pro" "$(fmt_cents "$pro_cents")" "$(fmt_cents "$PRO_DAILY_CENTS")" \
@@ -70,12 +80,15 @@ pro_line=$(printf '%-6s %s/%s  (%s)%s' \
 flash_line=$(printf '%-6s %s/%s  (%s)%s' \
     "flash" "$(fmt_cents "$flash_cents")" "$(fmt_cents "$FLASH_DAILY_CENTS")" \
     "$(fmt_pct "$flash_cents" "$FLASH_DAILY_CENTS")" "$flash_suffix")
+vision_line=$(printf '%-6s %s/%s  (%s)%s' \
+    "vision" "$(fmt_cents "$vision_cents")" "$(fmt_cents "$VISION_DAILY_CENTS")" \
+    "$(fmt_pct "$vision_cents" "$VISION_DAILY_CENTS")" "$vision_suffix")
 
-body=$(printf '%s\n%s' "$pro_line" "$flash_line")
+body=$(printf '%s\n%s\n%s' "$pro_line" "$flash_line" "$vision_line")
 
-if [ "$pro_level" = critical ] || [ "$flash_level" = critical ]; then
+if [ "$pro_level" = critical ] || [ "$flash_level" = critical ] || [ "$vision_level" = critical ]; then
     notify "dialog-error" "critical" "OpenCode Go" "$body"
-elif [ "$pro_level" = warn ] || [ "$flash_level" = warn ]; then
+elif [ "$pro_level" = warn ] || [ "$flash_level" = warn ] || [ "$vision_level" = warn ]; then
     notify "dialog-warning" "normal" "OpenCode Go" "$body"
 else
     notify "dialog-information" "low" "OpenCode Go" "$body"

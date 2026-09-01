@@ -1,0 +1,17 @@
+root: ~/.graybox
+default_workspace: personal
+
+llm:
+  model_name: openrouter/deepseek/deepseek-v3.2
+  base_url: https://openrouter.ai/api/v1
+  temperature: 0
+
+retrieval:
+  top_k: 5
+  min_score: 0.4
+  dedup_threshold: 0.85
+
+embeddings:
+  enabled: false
+  model_name: ""
+  base_url: ""

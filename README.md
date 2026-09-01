@@ -79,6 +79,7 @@ The color scheme are inspired by the **Framework 12 Sage** laptop.
 | bash          | `.bash_logout`, `.bash_profile`, `.bashrc`           | Minimal interactive Bash shell setup.                                  |
 | clipse        | `.config/clipse/`                                    | Clipboard manager with history.                                        |
 | galendae      | `.config/galendae/`                                  | Calendar popup launched from Waybar.                                   |
+| graybox       | `.graybox/`                                          | Local-first AI knowledge base / long-term memory (CLI + TUI).          |
 | gtrash        | `.config/gtrash/`                                    | Trash wrapper; `rm` aliases put files in trash.                        |
 | herdr         | `.config/herdr/`                                     | Agent-native terminal multiplexer for AI coding agents.                |
 | kitty         | `.config/kitty/`                                     | Terminal emulator with custom colors and font.                         |

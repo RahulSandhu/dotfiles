@@ -3,6 +3,7 @@
 - /.bundle/**
 - /.cache/**
 - /.cargo/**
+- /.dvdcss/**
 - /.designer/**
 - /.eclipse/**
 - /.fnmt/**

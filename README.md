@@ -77,6 +77,7 @@ The color scheme are inspired by the **Framework 12 Sage** laptop.
 | Tool          | Files                                                | Purpose                                                                |
 | ------------- | ---------------------------------------------------- | ---------------------------------------------------------------------- |
 | bash          | `.bash_logout`, `.bash_profile`, `.bashrc`           | Minimal interactive Bash shell setup.                                  |
+| betterbird    | `.config/betterbird/`                                | Email client; toggle script bound in Sway.                             |
 | clipse        | `.config/clipse/`                                    | Clipboard manager with history.                                        |
 | galendae      | `.config/galendae/`                                  | Calendar popup launched from Waybar.                                   |
 | graybox       | `.graybox/`                                          | Local-first AI knowledge base / long-term memory (CLI + TUI).          |
@@ -92,6 +93,7 @@ The color scheme are inspired by the **Framework 12 Sage** laptop.
 | powerlevel10k | `.p10k.zsh`                                          | Zsh prompt theme.                                                      |
 | r             | `.Renviron`, `.Rprofile`                             | R environment and renv setup.                                          |
 | rclone        | `.config/rclone/`                                    | Google Drive sync script and filters.                                  |
+| rmpc          | `.config/rmpc/`                                      | Client for Music Player Daemon.                                        |
 | sway          | `.config/sway/`, `.zprofile`                         | Wayland tiling window manager; `.zprofile` auto-starts Sway on `tty1`. |
 | swaync        | `.config/swaync/`                                    | Notification center and control center.                                |
 | swayosd       | `.config/swayosd/`                                   | On-screen display for volume and brightness.                           |

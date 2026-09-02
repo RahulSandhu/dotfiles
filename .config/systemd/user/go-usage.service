@@ -1,6 +1,0 @@
-[Unit]
-Description=Check daily OpenCode Go usage and notify at thresholds
-
-[Service]
-Type=oneshot
-ExecStart=%h/.config/opencode/scripts/go-usage.sh

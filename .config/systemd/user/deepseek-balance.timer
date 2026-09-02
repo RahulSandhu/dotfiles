@@ -1,5 +1,5 @@
 [Unit]
-Description=Check OpenCode Go usage every hour
+Description=Check DeepSeek balance every hour
 
 [Timer]
 OnCalendar=*:0

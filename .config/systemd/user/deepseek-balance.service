@@ -1,0 +1,6 @@
+[Unit]
+Description=Check DeepSeek API balance and notify at thresholds
+
+[Service]
+Type=oneshot
+ExecStart=%h/.config/opencode/scripts/deepseek-balance.sh

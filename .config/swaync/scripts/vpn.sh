@@ -20,7 +20,7 @@ notify_connected() {
 notify_disconnected() {
     notify-send \
         --app-name="PIA VPN" \
-        --icon=network-vpn-disconnected \
+        --icon=network-vpn-disconnected-symbolic \
         --urgency=normal \
         --expire-time=5000 \
         --replace-id="$ID" \

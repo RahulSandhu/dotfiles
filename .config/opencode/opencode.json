@@ -1,25 +1,30 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "opencode-go/deepseek-v4-pro",
+
+  "lsp": true,
+
+  "model": "deepseek/deepseek-v4-pro",
+
   "default_agent": "plan",
+
   "provider": {
-    "opencode-go": {
+    "deepseek": {
       "options": {
-        "apiKey": "{env:OPENCODE_GO_KEY}"
+        "apiKey": "{env:DEEPSEEK_KEY}"
       }
     }
   },
 
   "agent": {
     "build": {
-      "model": "opencode-go/deepseek-v4-flash"
+      "model": "deepseek/deepseek-v4-flash"
     },
     "plan": {
-      "model": "opencode-go/deepseek-v4-pro"
+      "model": "deepseek/deepseek-v4-pro"
     },
     "plan (vision)": {
       "mode": "primary",
-      "model": "opencode-go/deepseek-v4-flash-vision-exp",
+      "model": "deepseek/deepseek-v4-flash-vision-exp",
       "description": "Planning and analysis with image/vision support (read-only)",
       "color": "#CB1ED1",
       "permission": {
@@ -51,6 +56,7 @@
         "BRAVE_API_KEY": "{env:BRAVE_SEARCH_KEY}"
       }
     },
+
     "consensus": {
       "type": "remote",
       "url": "https://mcp.consensus.app/mcp",
@@ -60,6 +66,7 @@
         "Authorization": "Bearer {env:CONSENSUS_KEY}"
       }
     },
+
     "github": {
       "type": "remote",
       "url": "https://api.githubcopilot.com/mcp/",
@@ -69,11 +76,13 @@
         "Authorization": "Bearer {env:GITHUB_KEY}"
       }
     },
+
     "pdf-extraction": {
       "type": "local",
       "command": ["{env:HOME}/.config/opencode/mcp/pdf-extraction-server/.venv/bin/python", "-m", "pdf_extraction"],
       "enabled": true
     },
+
     "sqlite": {
       "type": "local",
       "command": ["{env:HOME}/.config/opencode/mcp/sqlite-server/.venv/bin/python", "-m", "sqlite_mcp"],

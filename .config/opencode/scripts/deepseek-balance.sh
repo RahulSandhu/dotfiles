@@ -4,8 +4,8 @@ set -euo pipefail
 
 WARN_BALANCE=1.00
 
-key=$DEEPSEEK_KEY
-if [ -z "${key:-}" ]; then
+key=${DEEPSEEK_KEY:-}
+if [ -z "$key" ]; then
     key=$(grep -E '^export DEEPSEEK_KEY=' "$HOME/.zshenv" | tail -1 | cut -d= -f2- | tr -d '"'"'"'')
 fi
 

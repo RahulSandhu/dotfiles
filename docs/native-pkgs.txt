@@ -46,6 +46,7 @@ fwupd
 fzf
 gcc-fortran
 git
+git-filter-repo
 git-lfs
 github-cli
 glpk

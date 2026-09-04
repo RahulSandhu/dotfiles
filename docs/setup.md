@@ -171,8 +171,8 @@ fwupdmgr update
 
 ```bash
 # Install Native (Arch Repo) packages
-sudo pacman -S --needed - < native_pkgs.txt
+sudo pacman -S --needed - < docs/native_pkgs.txt
 
 # Install Foreign (AUR/Local) packages
-yay -S --needed - < foreign_pkgs.txt
+yay -S --needed - < docs/foreign_pkgs.txt
 ```

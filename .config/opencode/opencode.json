@@ -56,7 +56,6 @@
         "BRAVE_API_KEY": "{env:BRAVE_SEARCH_KEY}"
       }
     },
-
     "consensus": {
       "type": "remote",
       "url": "https://mcp.consensus.app/mcp",
@@ -66,7 +65,6 @@
         "Authorization": "Bearer {env:CONSENSUS_KEY}"
       }
     },
-
     "github": {
       "type": "remote",
       "url": "https://api.githubcopilot.com/mcp/",
@@ -76,13 +74,11 @@
         "Authorization": "Bearer {env:GITHUB_KEY}"
       }
     },
-
     "pdf-extraction": {
       "type": "local",
       "command": ["{env:HOME}/.config/opencode/mcp/pdf-extraction-server/.venv/bin/python", "-m", "pdf_extraction"],
       "enabled": true
     },
-
     "sqlite": {
       "type": "local",
       "command": ["{env:HOME}/.config/opencode/mcp/sqlite-server/.venv/bin/python", "-m", "sqlite_mcp"],

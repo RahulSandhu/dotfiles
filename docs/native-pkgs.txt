@@ -9,7 +9,7 @@ base-devel
 bat
 biber
 bitwarden
-bluetui
+blueman
 bluez
 bluez-utils
 brightnessctl

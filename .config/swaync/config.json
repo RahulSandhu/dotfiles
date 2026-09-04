@@ -23,21 +23,7 @@
   "hide-on-clear": true,
   "hide-on-action": false,
   "script-fail-notify": true,
-  "per-app-settings": {
-    "Battery": {
-      "timeout": 0,
-      "timeout-low": 0,
-      "timeout-critical": 0
-    }
-  },
-  "widgets": [
-    "buttons-grid",
-    "backlight",
-    "volume",
-    "mpris",
-    "notifications",
-    "title"
-  ],
+  "widgets": ["buttons-grid", "backlight", "volume", "mpris", "notifications", "title"],
   "widget-config": {
     "mpris": {
       "image-size": 95,
@@ -90,7 +76,7 @@
     "title": {
       "text": "",
       "clear-all-button": true,
-      "button-text": "󰎟"
+      "button-text": ""
     }
   }
 }

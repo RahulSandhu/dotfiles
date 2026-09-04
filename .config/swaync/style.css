@@ -123,7 +123,7 @@ scrolledwindow scrollbar.overlay-indicator {
     opacity: 0;
 }
 
-/* Battery label widget */
+/* Title widget */
 .widget-title {
   padding: 12px 16px 16px 0;
 }
@@ -134,20 +134,22 @@ scrolledwindow scrollbar.overlay-indicator {
   padding-left: 16px;
 }
 .widget-title .control-center-clear-all {
-  min-width: 44px;
-  min-height: 44px;
-  padding: 0;
+  min-width: 60px;
+  min-height: 60px;
+  padding: 2px 2px 1px 1px;
   border-radius: 0px;
-  border: none;
   background-color: #000000;
-  color: #6e6e70;
+  color: #e0e0e0;
   font-size: 24pt;
 }
 .widget-title .control-center-clear-all:hover {
   background-color: #000000;
+}
+.widget-title .control-center-clear-all:hover label {
   color: #b8d9ae;
 }
 .widget-title .control-center-clear-all label {
   padding: 0;
   margin: 0;
+  font-size: 24pt;
 }

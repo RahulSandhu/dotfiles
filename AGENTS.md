@@ -59,7 +59,6 @@ reload or login.
 | Terminal/launcher              | `.config/kitty/`, `.config/wofi/`                        | Wofi menus/capture scripts under `.config/wofi/scripts/`.                                                                    |
 | Emoji picker                   | `.config/wofi/scripts/emoji-picker.sh`                   | `Super+.` in Sway; singleton via `/tmp/wofi-emoji.pid`.                                                                      |
 | AI agent multiplexer           | `.config/herdr/`                                         | Terminal multiplexer for AI coding agents.                                                                                   |
-| Music player                   | `.config/kew/`                                           | `kewrc`.                                                                                                                     |
 | Email                          | `.config/betterbird/`                                    | `toggle-betterbird.sh` bound in Sway.                                                                                        |
 | Clipboard manager              | `.config/clipse/`                                        | Toggle script in `.config/clipse/scripts/`.                                                                                  |
 | Calendar/notes                 | `.config/galendae/`, `.config/notse/`                    |                                                                                                                              |

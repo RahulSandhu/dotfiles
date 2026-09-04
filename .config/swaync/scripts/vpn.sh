@@ -135,11 +135,6 @@ monitor_mode() {
     exec 9>/tmp/vpn-monitor.lock
     flock -n 9 || exit 0
 
-    # Kill other vpn-notif.sh instances if still running
-    for pid in $(pgrep -f "vpn-notif.sh"); do
-        [ "$pid" != "$$" ] && kill "$pid" 2>/dev/null
-    done
-
     if command -v piactl &>/dev/null; then
         monitor_pia &
     fi

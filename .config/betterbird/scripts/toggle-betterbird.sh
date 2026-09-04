@@ -5,7 +5,7 @@ STATE_FILE="/tmp/betterbird_visible_state"
 
 # Ensure SWAYSOCK is set for swaymsg
 if [ -z "$SWAYSOCK" ]; then
-    export SWAYSOCK=$(ls /run/user/$(id - u)/sway-ipc.*.sock 2>/dev/null | head -1)
+    export SWAYSOCK=$(ls /run/user/$(id -u)/sway-ipc.*.sock 2>/dev/null | head -1)
 fi
 
 # Check if Betterbird is running (use pidof to avoid matching the script filename)

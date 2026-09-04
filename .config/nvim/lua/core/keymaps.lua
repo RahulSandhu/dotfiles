@@ -27,7 +27,7 @@ set_keymap("n", "<leader>tn", "<cmd>tabn<CR>", "Next tab")
 set_keymap("n", "<leader>tp", "<cmd>tabp<CR>", "Previous tab")
 set_keymap("n", "<leader>tO", "<cmd>tabnew %<CR>", "Open buffer in new tab")
 
-set_keymap("n", "gx", ":!open <c-r><c-a><CR>", "Open URL under cursor")
+set_keymap("n", "gx", ":!xdg-open <c-r><c-a><CR>", "Open URL under cursor")
 set_keymap("n", "<leader>hc", ":nohl<CR>", "Clear highlights")
 
 set_keymap("v", ">", ">gv", "Indent and keep selection")
@@ -180,7 +180,6 @@ set_keymap("n", "<leader>fo", "<cmd>Telescope lsp_document_symbols hidden=true<c
 set_keymap("n", "<leader>fi", "<cmd>Telescope lsp_incoming_calls hidden=true<cr>", "LSP incoming calls")
 set_keymap("n", "<leader>fk", "<cmd>Telescope keymaps<cr>", "Keymaps")
 set_keymap("n", "<leader>fq", "<cmd>Telescope quickfix<cr>", "Quickfix")
-set_keymap("n", "<leader>fp", "<cmd>Telescope neoclip<cr>", "Paste history")
 set_keymap("n", "<leader>fz", "<cmd>Telescope zotero<cr>", "Zotero references")
 set_keymap("n", "fz", ":Telescope spell_suggest<cr>", "Spell suggestions")
 

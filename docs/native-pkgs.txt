@@ -90,6 +90,7 @@ mariadb-clients
 mariadb-libs
 mesa
 mpd
+mpd-mpris
 neovim
 networkmanager
 networkmanager-openvpn

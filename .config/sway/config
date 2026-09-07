@@ -29,7 +29,7 @@ output eDP-1 resolution 1920x1200
 
 # Set wallpaper from the color palette
 output * bg #b8d9ae solid_color
-# output * bg ~/pictures/wallpapers/1394827.png fill
+# output * bg ~/pictures/wallpapers/example-image.png fill
 
 # Client colors                 border    background text     indicator child_border
 client.focused                  #4a5d46   #000000   #e0e0e0   #4a5d46   #4a5d46

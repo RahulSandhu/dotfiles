@@ -30,7 +30,7 @@ return {
 				"sqlls",
 				"matlab-language-server",
 				"gopls",
-				"rust_analyzer",
+				"clangd",
 				"ltex-ls-plus",
 				-- Formatters
 				"stylua",
@@ -40,10 +40,12 @@ return {
 				"gofumpt",
 				"goimports",
 				"latexindent",
+				"clang-format",
 				-- Linters
 				"selene",
 				"markdownlint",
 				"golangci-lint",
+				"cpplint",
 			},
 			auto_update = true,
 			run_on_start = true,
@@ -59,7 +61,7 @@ return {
 				"sqlls",
 				"matlab_ls",
 				"gopls",
-				"rust_analyzer",
+				"clangd",
 				"ltex_plus",
 			},
 		})
@@ -124,38 +126,11 @@ return {
 			},
 		})
 
-		-- Rust LSP
-		vim.lsp.config("rust_analyzer", {
-			settings = {
-				["rust-analyzer"] = {
-					cargo = {
-						features = "all",
-					},
-					diagnostics = {
-						enable = true,
-						experimental = {
-							enable = true,
-						},
-					},
-					checkOnSave = true,
-					check = {
-						command = "clippy",
-					},
-					inlayHints = {
-						bindingModeHints = { enable = false },
-						chainingHints = { enable = true },
-						closingBraceHints = { enable = true },
-						closureReturnTypeHints = { enable = "never" },
-						lifetimeElisionHints = { enable = "never" },
-						parameterHints = { enable = true },
-						reborrowHints = { enable = "never" },
-						typeHints = { enable = true },
-					},
-					procMacro = {
-						enable = true,
-					},
-				},
-			},
+		-- C/C++ LSP
+		vim.lsp.config("clangd", {
+			cmd = { "clangd", "--background-index", "--header-insertion=never" },
+			filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
+			root_markers = { ".clangd", "compile_commands.json", "compile_flags.txt", ".git" },
 		})
 
 		-- Markdown LSP

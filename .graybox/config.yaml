@@ -2,8 +2,8 @@ root: ~/.graybox
 default_workspace: personal
 
 llm:
-  model_name: openrouter/deepseek/deepseek-v3.2
-  base_url: https://openrouter.ai/api/v1
+  model_name: deepseek/deepseek-v4-flash
+  base_url: https://api.deepseek.com
   temperature: 0
 
 retrieval:

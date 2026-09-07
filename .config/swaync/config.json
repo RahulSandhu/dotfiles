@@ -3,7 +3,7 @@
   "positionX": "right",
   "positionY": "top",
   "cssPriority": "user",
-  "control-center-width": 550,
+  "control-center-width": 600,
   "control-center-height": 1000,
   "control-center-margin-top": 0,
   "control-center-margin-bottom": 0,
@@ -76,7 +76,7 @@
     "title": {
       "text": "",
       "clear-all-button": true,
-      "button-text": ""
+      "button-text": "CLEAR"
     }
   }
 }

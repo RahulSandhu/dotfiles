@@ -17,7 +17,6 @@ return {
 			"lua",
 			"latex",
 			"vim",
-			"rust",
 		}):wait(300000)
 
 		-- Enable treesitter features per filetype
@@ -32,7 +31,6 @@ return {
 				"lua",
 				"tex",
 				"vim",
-				"rust",
 			},
 			callback = function()
 				-- Core highlighting (Neovim built-in)

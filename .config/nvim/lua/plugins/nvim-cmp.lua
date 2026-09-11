@@ -107,7 +107,7 @@ return {
 		})
 
 		-- Filetype overrides
-		cmp.setup.filetype({ "markdown", "quarto", "rmd" }, {
+		cmp.setup.filetype({ "markdown", "rmd" }, {
 			sources = {
 				{ name = "luasnip" },
 				{ name = "nvim_lsp" },

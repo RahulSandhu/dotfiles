@@ -28,11 +28,9 @@ return {
 				json = { "prettier" },
 				tex = { "latexindent" },
 				go = { "goimports", "gofumpt" },
-				c = { "clang_format" },
-				cpp = { "clang_format" },
+				sql = { "sqlfluff" },
 				r = { "air" },
 				rmd = { "air" },
-				quarto = { "air" },
 			},
 
 			-- Format on save

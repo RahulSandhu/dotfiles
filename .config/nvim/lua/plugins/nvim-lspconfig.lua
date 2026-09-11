@@ -30,7 +30,6 @@ return {
 				"sqlls",
 				"matlab-language-server",
 				"gopls",
-				"clangd",
 				"ltex-ls-plus",
 				-- Formatters
 				"stylua",
@@ -40,12 +39,11 @@ return {
 				"gofumpt",
 				"goimports",
 				"latexindent",
-				"clang-format",
 				-- Linters
 				"selene",
 				"markdownlint",
 				"golangci-lint",
-				"cpplint",
+				"sqlfluff",
 			},
 			auto_update = true,
 			run_on_start = true,
@@ -61,7 +59,6 @@ return {
 				"sqlls",
 				"matlab_ls",
 				"gopls",
-				"clangd",
 				"ltex_plus",
 			},
 		})
@@ -126,16 +123,9 @@ return {
 			},
 		})
 
-		-- C/C++ LSP
-		vim.lsp.config("clangd", {
-			cmd = { "clangd", "--background-index", "--header-insertion=never" },
-			filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
-			root_markers = { ".clangd", "compile_commands.json", "compile_flags.txt", ".git" },
-		})
-
 		-- Markdown LSP
 		vim.lsp.config("marksman", {
-			filetypes = { "markdown", "markdown.mdx", "quarto" },
+			filetypes = { "markdown", "markdown.mdx" },
 			single_file_support = true,
 		})
 

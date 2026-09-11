@@ -11,8 +11,7 @@ return {
 			python = { "ruff" },
 			markdown = { "markdownlint" },
 			go = { "golangci-lint" },
-			c = { "cpplint" },
-			cpp = { "cpplint" },
+			sql = { "sqlfluff" },
 		}
 
 		vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "InsertLeave" }, {

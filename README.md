@@ -31,7 +31,7 @@ Personal Arch Linux configuration.
 
 ## Color palette
 
-The color scheme are inspired by the **Framework 12 Sage** laptop.
+The color scheme is inspired by the **Framework 12 Sage** laptop.
 
 <div align="center">
   <table>
@@ -74,33 +74,32 @@ The color scheme are inspired by the **Framework 12 Sage** laptop.
 
 ## Tools
 
-| Tool          | Files                                                | Purpose                                                                |
-| ------------- | ---------------------------------------------------- | ---------------------------------------------------------------------- |
-| bash          | `.bash_logout`, `.bash_profile`, `.bashrc`           | Minimal interactive Bash shell setup.                                  |
-| betterbird    | `.config/betterbird/`                                | Email client; toggle script bound in Sway.                             |
-| clipse        | `.config/clipse/`                                    | Clipboard manager with history.                                        |
-| galendae      | `.config/galendae/`                                  | Calendar popup launched from Waybar.                                   |
-| graybox       | `.graybox/`                                          | Local-first AI knowledge base / long-term memory (CLI + TUI).          |
-| gtrash        | `.config/gtrash/`                                    | Trash wrapper; `rm` aliases put files in trash.                        |
-| herdr         | `.config/herdr/`                                     | Agent-native terminal multiplexer for AI coding agents.                |
-| kitty         | `.config/kitty/`                                     | Terminal emulator with custom colors and font.                         |
-| lsq           | `.config/lsq/`                                       | Headless LocalSend auto-receive via `lsq` (Rust CLI).                  |
-| mpd           | `.config/mpd/`                                       | Music Player Daemon.                                                   |
-| neovim        | `.config/nvim/`                                      | Editor with Lazy.nvim plugin manager.                                  |
-| notse         | `.config/notse/`                                     | Terminal-based note-taking app.                                        |
-| npm           | `.npmrc`                                             | npm global install prefix.                                             |
-| opencode      | `.config/opencode/`                                  | OpenCode AI agent config and MCP servers.                              |
-| powerlevel10k | `.p10k.zsh`                                          | Zsh prompt theme.                                                      |
-| r             | `.Renviron`, `.Rprofile`                             | R environment and renv setup.                                          |
-| rclone        | `.config/rclone/`                                    | Google Drive sync script and filters.                                  |
-| rmpc          | `.config/rmpc/`                                      | Client for Music Player Daemon.                                        |
-| sway          | `.config/sway/`, `.zprofile`                         | Wayland tiling window manager; `.zprofile` auto-starts Sway on `tty1`. |
-| swaync        | `.config/swaync/`                                    | Notification center and control center.                                |
-| swayosd       | `.config/swayosd/`                                   | On-screen display for volume and brightness.                           |
-| systemd       | `.config/systemd/user/`                              | User services and timers.                                              |
-| timeshift     | `.config/timeshift/`                                 | System snapshot scheduling.                                            |
-| waybar        | `.config/waybar/`                                    | Top bar with workspaces, clock, and custom menu.                       |
-| wofi          | `.config/wofi/`                                      | Application launcher and screenshot/cast menus.                        |
-| XDG user dirs | `.config/user-dirs.dirs`, `.config/user-dirs.locale` | Default directory names.                                               |
-| zathura       | `.config/zathura/`                                   | Minimal PDF reader.                                                    |
-| zsh           | `.zshrc`, `.zprofile`                                | Main shell with Zinit, aliases, and Wayland env vars.                  |
+| Tool          | Files                                                | Purpose                                                                  |
+| ------------- | ---------------------------------------------------- | ------------------------------------------------------------------------ |
+| bash          | `.bash_logout`, `.bash_profile`, `.bashrc`           | Minimal interactive Bash shell setup.                                    |
+| betterbird    | `.config/betterbird/`                                | Email client; toggle script bound in Sway.                               |
+| clipse        | `.config/clipse/`                                    | Clipboard manager with history.                                          |
+| galendae      | `.config/galendae/`                                  | Calendar popup launched from Waybar.                                     |
+| gtrash        | `.config/gtrash/`                                    | Trash wrapper; `rm` aliases put files in trash.                          |
+| herdr         | `.config/herdr/`                                     | Agent-native terminal multiplexer for AI coding agents.                  |
+| kitty         | `.config/kitty/`                                     | Terminal emulator with custom colors and font.                           |
+| lsq           | `.config/lsq/`                                       | Headless LocalSend auto-receive via `lsq` (Rust CLI).                    |
+| mpd           | `.config/mpd/`                                       | Music Player Daemon.                                                     |
+| neovim        | `.config/nvim/`                                      | Editor with Lazy.nvim plugin manager.                                    |
+| notse         | `.config/notse/`                                     | Terminal-based note-taking app.                                          |
+| npm           | `.npmrc`                                             | npm global install prefix.                                               |
+| opencode      | `.config/opencode/`                                  | OpenCode AI agent config (OpenRouter, pinned to DeepSeek) + MCP servers. |
+| powerlevel10k | `.p10k.zsh`                                          | Zsh prompt theme.                                                        |
+| r             | `.Renviron`, `.Rprofile`                             | R environment and renv setup.                                            |
+| rclone        | `.config/rclone/`                                    | Google Drive sync script and filters.                                    |
+| rmpc          | `.config/rmpc/`                                      | Client for Music Player Daemon.                                          |
+| sway          | `.config/sway/`, `.zprofile`                         | Wayland tiling window manager; `.zprofile` auto-starts Sway on `tty1`.   |
+| swaync        | `.config/swaync/`                                    | Notification center and control center.                                  |
+| swayosd       | `.config/swayosd/`                                   | On-screen display for volume and brightness.                             |
+| systemd       | `.config/systemd/user/`                              | User services and timers.                                                |
+| timeshift     | `.config/timeshift/`                                 | System snapshot scheduling.                                              |
+| waybar        | `.config/waybar/`                                    | Top bar with workspaces, clock, and custom menu.                         |
+| wofi          | `.config/wofi/`                                      | Application launcher and screenshot/cast menus.                          |
+| XDG user dirs | `.config/user-dirs.dirs`, `.config/user-dirs.locale` | Default directory names.                                                 |
+| zathura       | `.config/zathura/`                                   | Minimal PDF reader.                                                      |
+| zsh           | `.zshrc`, `.zprofile`                                | Main shell with Zinit, aliases, and Wayland env vars.                    |

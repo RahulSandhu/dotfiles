@@ -1,0 +1,2 @@
+R_LIBS_USER=${HOME}/.local/share/R/library
+RENV_PATHS_RENV=.renv

@@ -1,0 +1,9 @@
+[Unit]
+Description=Weekly Timeshift snapshot creation
+
+[Service]
+Type=oneshot
+ExecStart=%h/.config/timeshift/scripts/timeshift-weekly.sh
+
+[Install]
+WantedBy=default.target

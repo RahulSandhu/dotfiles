@@ -1,0 +1,10 @@
+[Unit]
+Description=Run gtrash prune monthly on the 1st at 08:00
+
+[Timer]
+OnCalendar=*-*-01 08:00:00
+Persistent=true
+AccuracySec=1h
+
+[Install]
+WantedBy=timers.target

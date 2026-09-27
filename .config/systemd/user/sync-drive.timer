@@ -1,0 +1,9 @@
+[Unit]
+Description=Run rclone sync-drive every 8 hours
+
+[Timer]
+OnCalendar=*-*-* 00,08,16:00:00
+AccuracySec=1min
+
+[Install]
+WantedBy=timers.target

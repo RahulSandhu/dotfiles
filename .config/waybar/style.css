@@ -1,0 +1,49 @@
+/* General settings */
+* {
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 16pt;
+}
+
+/* Waybar */
+window#waybar {
+  background-color: #000000;
+}
+
+/* Workspaces */
+#workspaces button {
+  color: #e0e0e0;
+  font-weight: bold;
+  border-radius: 0px;
+  background: none;
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+#workspaces button.visible {
+  color: #6e6e70;
+}
+#workspaces button.focused {
+  background-color: #445c3d;
+  color: #e0e0e0;
+}
+#workspaces button:active {
+  background-color: #b8d9ae;
+  color: #000000;
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+/* Calendar */
+#clock {
+  font-weight: bold;
+  color: #e0e0e0;
+}
+
+/* Custom menu */
+#custom-menu {
+  margin-right: 25px;
+  font-weight: bold;
+  color: #e0e0e0;
+  font-size: 24pt;
+} 

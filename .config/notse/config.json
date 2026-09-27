@@ -1,0 +1,5 @@
+{
+  "notes_file": "$HOME/.config/notse/notes.json",
+  "max_history": 100,
+  "theme_file": "$HOME/.config/notse/theme.json"
+}

@@ -1,0 +1,10 @@
+[Unit]
+Description=Run Timeshift snapshot weekly on Saturday
+
+[Timer]
+OnCalendar=Sat *-*-* 08:00:00
+Persistent=true
+AccuracySec=1h
+
+[Install]
+WantedBy=timers.target

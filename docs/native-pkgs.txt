@@ -9,7 +9,7 @@ base-devel
 bat
 biber
 bitwarden
-bluetui
+blueman
 bluez
 bluez-utils
 brightnessctl
@@ -22,13 +22,15 @@ composer
 cronie
 cups
 dbeaver
+deno
 dnsmasq
 docker
 docker-compose
 dosfstools
+drawio-desktop
 dua-cli
+duf
 e2fsprogs
-easytag
 efibootmgr
 exfat-utils
 extra-cmake-modules
@@ -44,6 +46,7 @@ fwupd
 fzf
 gcc-fortran
 git
+git-filter-repo
 git-lfs
 github-cli
 glpk
@@ -86,6 +89,9 @@ man-db
 mariadb-clients
 mariadb-libs
 mesa
+mise
+mpd
+mpd-mpris
 neovim
 networkmanager
 networkmanager-openvpn
@@ -96,7 +102,7 @@ npm
 ntfs-3g
 ntfsprogs
 nwg-displays
-ollama
+openbsd-netcat
 opencode
 openconnect
 openexr
@@ -105,6 +111,7 @@ pandoc-cli
 pavucontrol
 photoflare
 php
+picard
 pipewire
 pipewire-alsa
 pipewire-jack
@@ -115,10 +122,12 @@ pyenv
 python-graph-tool
 python-i3ipc
 python-markdown
+python-pillow
 python-pip
 python-pygments
 python-pynvim
 python-pyqt5
+python-reportlab
 python-yaml
 qt5-wayland
 qt6-multimedia
@@ -129,6 +138,7 @@ rclone
 reflector
 ripgrep
 rkhunter
+rmpc
 rsync
 ruby
 ruby-build
@@ -198,10 +208,8 @@ xf86-input-libinput
 xorg-xwayland
 xterm
 yarn
-yazi
 zathura
 zathura-pdf-mupdf
-zellij
 zip
 zoxide
 zsh

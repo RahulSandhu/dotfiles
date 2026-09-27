@@ -12,7 +12,7 @@ fi
 
 notify-send \
     --app-name="Sway" \
-    --icon=input-keyboard \
+    --icon=input-keyboard-symbolic \
     --urgency=low \
     --expire-time=3000 \
     --replace-id=9992 \

@@ -15,6 +15,9 @@ return {
 				stylua = {
 					command = vim.fn.expand("~/.local/share/nvim/mason/bin/stylua"),
 				},
+				prettier = {
+					prepend_args = { "--print-width", "200" },
+				},
 			},
 
 			-- Formatters by filetype
@@ -25,7 +28,9 @@ return {
 				json = { "prettier" },
 				tex = { "latexindent" },
 				go = { "goimports", "gofumpt" },
-				rust = { "rustfmt" },
+				sql = { "sqlfluff" },
+				r = { "air" },
+				rmd = { "air" },
 			},
 
 			-- Format on save

@@ -3,11 +3,11 @@
   "positionX": "right",
   "positionY": "top",
   "cssPriority": "user",
-  "control-center-width": 550,
-  "control-center-height": 800,
-  "control-center-margin-top": 20,
+  "control-center-width": 600,
+  "control-center-height": 1000,
+  "control-center-margin-top": 0,
   "control-center-margin-bottom": 0,
-  "control-center-margin-right": 20,
+  "control-center-margin-right": 0,
   "control-center-margin-left": 0,
   "notification-window-width": 400,
   "notification-icon-size": 50,
@@ -23,21 +23,7 @@
   "hide-on-clear": true,
   "hide-on-action": false,
   "script-fail-notify": true,
-  "per-app-settings": {
-    "Battery": {
-      "timeout": 0,
-      "timeout-low": 0,
-      "timeout-critical": 0
-    }
-  },
-  "widgets": [
-    "buttons-grid",
-    "backlight",
-    "volume",
-    "mpris",
-    "notifications",
-    "title"
-  ],
+  "widgets": ["buttons-grid", "backlight", "volume", "mpris", "notifications", "title"],
   "widget-config": {
     "mpris": {
       "image-size": 95,
@@ -88,9 +74,9 @@
       ]
     },
     "title": {
-      "text": "󰂄 61%",
+      "text": "",
       "clear-all-button": true,
-      "button-text": "󰎟"
+      "button-text": "CLEAR"
     }
   }
 }

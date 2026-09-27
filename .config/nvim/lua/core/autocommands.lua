@@ -29,37 +29,3 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		end
 	end,
 })
-
--- Auto-activate Python virtual environments
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "python",
-	callback = function()
-		local bufpath = vim.api.nvim_buf_get_name(0)
-		if bufpath == "" then
-			return
-		end
-		local dir = vim.fn.fnamemodify(bufpath, ":h")
-
-		-- Search upward for .venv directory
-		local venv_path = vim.fs.find(".venv", {
-			path = dir,
-			upward = true,
-			type = "directory",
-		})[1]
-
-		if venv_path then
-			local venv_bin = venv_path .. "/bin"
-			local venv_python = venv_bin .. "/python"
-
-			if vim.fn.executable(venv_python) == 1 then
-				local current_path = vim.env.PATH or ""
-				-- Avoid prepending duplicate paths
-				if not current_path:find(venv_bin, 1, true) then
-					vim.env.PATH = venv_bin .. ":" .. current_path
-				end
-				vim.env.VIRTUAL_ENV = venv_path
-			end
-		end
-	end,
-})
-

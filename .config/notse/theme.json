@@ -2,5 +2,10 @@
   "accent": "#b8d9ae",
   "muted": "#6e6e70",
   "text_on_accent": "#000000",
-  "selected": "#445c3d"
+  "selected": "#445c3d",
+  "title_info": "#b8d9ae",
+  "normal_title": "#e0e0e0",
+  "pin_indicator_color": "#b8d9ae",
+  "help_key": "#b8d9ae",
+  "page_active_dot": "#b8d9ae"
 }

@@ -3,9 +3,11 @@
 - /.bundle/**
 - /.cache/**
 - /.cargo/**
+- /.dvdcss/**
 - /.designer/**
 - /.eclipse/**
 - /.fnmt/**
+- /.gnupg/**
 - /.hplip/**
 - /.ipython/**
 - /.java/**
@@ -44,3 +46,4 @@
 - **/__pycache__/**
 - **/.ruff_cache/**
 - **/target/**
+- **/*.egg-info/**

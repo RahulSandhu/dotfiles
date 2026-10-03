@@ -3,6 +3,7 @@
 - /.bundle/**
 - /.cache/**
 - /.cargo/**
+- /.rustup/**
 - /.dvdcss/**
 - /.designer/**
 - /.eclipse/**
@@ -35,6 +36,7 @@
 - /.wget-hsts
 - /.zcompdump
 - /.zsh_history
+- /music/**
 
 - **/.git/**
 - **/.venv/**

@@ -83,7 +83,6 @@ The color scheme is inspired by the **Framework 12 Sage** laptop.
 | gtrash        | `.config/gtrash/`                                    | Trash wrapper; `rm` aliases put files in trash.                          |
 | herdr         | `.config/herdr/`                                     | Agent-native terminal multiplexer for AI coding agents.                  |
 | kitty         | `.config/kitty/`                                     | Terminal emulator with custom colors and font.                           |
-| lsq           | `.config/lsq/`                                       | Headless LocalSend auto-receive via `lsq` (Rust CLI).                    |
 | mpd           | `.config/mpd/`                                       | Music Player Daemon.                                                     |
 | neovim        | `.config/nvim/`                                      | Editor with Lazy.nvim plugin manager.                                    |
 | notse         | `.config/notse/`                                     | Terminal-based note-taking app.                                          |
@@ -91,12 +90,13 @@ The color scheme is inspired by the **Framework 12 Sage** laptop.
 | opencode      | `.config/opencode/`                                  | OpenCode AI agent config (OpenRouter, pinned to DeepSeek) + MCP servers. |
 | powerlevel10k | `.p10k.zsh`                                          | Zsh prompt theme.                                                        |
 | r             | `.Renviron`, `.Rprofile`                             | R environment and renv setup.                                            |
-| rclone        | `.config/rclone/`                                    | Google Drive sync script and filters.                                    |
+| rclone        | `.config/rclone/`                                    | Backup sync to the homelab (`sync-homelab.sh`) and its filters.           |
 | rmpc          | `.config/rmpc/`                                      | Client for Music Player Daemon.                                          |
 | sway          | `.config/sway/`, `.zprofile`                         | Wayland tiling window manager; `.zprofile` auto-starts Sway on `tty1`.   |
-| swaync        | `.config/swaync/`                                    | Notification center and control center.                                  |
+| swaync        | `.config/swaync/`                                    | Notification and control center; hosts the Wi-Fi, Bluetooth and Tailscale-first VPN toggles. |
 | swayosd       | `.config/swayosd/`                                   | On-screen display for volume and brightness.                             |
 | systemd       | `.config/systemd/user/`                              | User services and timers.                                                |
+| terrahour     | `.config/terrahour/`                                 | World clock app; launched from the Waybar clock.                         |
 | timeshift     | `.config/timeshift/`                                 | System snapshot scheduling.                                              |
 | waybar        | `.config/waybar/`                                    | Top bar with workspaces, clock, and custom menu.                         |
 | wofi          | `.config/wofi/`                                      | Application launcher and screenshot/cast menus.                          |

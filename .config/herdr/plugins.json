@@ -1,1 +1,85 @@
-[]
+[
+  {
+    "plugin_id": "herdr.auto-title",
+    "name": "Auto Title",
+    "version": "0.10.0",
+    "min_herdr_version": "0.8.2",
+    "description": "Automatically generates contextual tab titles",
+    "manifest_path": "/home/rahul/.config/herdr/plugins/github/herdr.auto-title-4b7d61f48ce8/herdr-plugin.toml",
+    "plugin_root": "/home/rahul/.config/herdr/plugins/github/herdr.auto-title-4b7d61f48ce8",
+    "enabled": true,
+    "platforms": [
+      "linux",
+      "macos",
+      "windows"
+    ],
+    "build": [
+      {
+        "platforms": [
+          "linux",
+          "macos"
+        ],
+        "command": [
+          "go",
+          "build",
+          "-o",
+          "herdr-auto-title",
+          "./cmd/herdr-auto-title"
+        ]
+      },
+      {
+        "platforms": [
+          "windows"
+        ],
+        "command": [
+          "go",
+          "build",
+          "-o",
+          "herdr-auto-title.exe",
+          "./cmd/herdr-auto-title"
+        ]
+      }
+    ],
+    "startup": [
+      {
+        "platforms": [
+          "linux",
+          "macos"
+        ],
+        "command": [
+          "./herdr-auto-title"
+        ]
+      },
+      {
+        "platforms": [
+          "windows"
+        ],
+        "command": [
+          "./herdr-auto-title.exe"
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "restart",
+        "title": "Auto Title: restart",
+        "description": "Start a fresh Auto Title in place of the running one",
+        "contexts": [
+          "global"
+        ],
+        "command": [
+          "./herdr-auto-title",
+          "restart"
+        ]
+      }
+    ],
+    "source": {
+      "kind": "github",
+      "owner": "kryptamine",
+      "repo": "herdr-auto-title",
+      "resolved_commit": "e78619a26674da2b741457be864169ad56767887",
+      "managed_path": "/home/rahul/.config/herdr/plugins/github/herdr.auto-title-4b7d61f48ce8",
+      "installed_unix_ms": 1790701917333
+    }
+  }
+]

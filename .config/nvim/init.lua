@@ -35,3 +35,4 @@ require("lazy").setup("plugins", {
 require("core.options")
 require("core.autocommands")
 require("core.keymaps")
+require("ui.statusline")

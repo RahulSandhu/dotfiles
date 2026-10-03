@@ -137,6 +137,7 @@ return {
 					matlabConnectionTiming = "onStart",
 					indexWorkspace = false,
 					telemetry = false,
+					prewarmGraphics = false,
 				},
 			},
 			filetypes = { "matlab" },

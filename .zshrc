@@ -79,10 +79,6 @@ alias tree='exa --icons=always --tree'
 
 alias R='R --no-save'
 
-alias lsend='lsq send --port 53318'
-alias lreceive='lsq receive --port 53318'
-alias lscan='lsq list --port 53318'
-
 # Gtrash integrations
 rm() { gtrash put "$@"; }
 rm-list() { gtrash summary | sort; }

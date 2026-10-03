@@ -1,0 +1,13 @@
+[Unit]
+Description=rclone sync to the homelab (backup mirror)
+After=graphical-session.target
+Wants=graphical-session.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/desktop/projects/dotfiles/.config/rclone/scripts/sync-homelab.sh
+Nice=10
+IOSchedulingClass=idle
+
+[Install]
+WantedBy=default.target

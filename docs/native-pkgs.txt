@@ -72,6 +72,7 @@ kitty
 ladspa
 less
 libdvdcss
+libfprint
 libnotify
 libraw
 libreoffice-fresh
@@ -82,6 +83,7 @@ linux
 linux-firmware
 linux-headers
 linuxconsole
+lostfiles
 lsof
 lua51
 luarocks
@@ -107,6 +109,7 @@ opencode
 openconnect
 openexr
 openvpn
+pacman-contrib
 pandoc-cli
 pavucontrol
 photoflare
@@ -161,6 +164,7 @@ sway
 swaybg
 swayidle
 swaync
+tailscale
 texlive-basic
 texlive-bibtexextra
 texlive-binextra
@@ -207,6 +211,7 @@ xdg-user-dirs
 xf86-input-libinput
 xorg-xwayland
 xterm
+yaegi
 yarn
 zathura
 zathura-pdf-mupdf

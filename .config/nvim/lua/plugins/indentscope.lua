@@ -15,7 +15,7 @@ return {
 	end,
 	init = function()
 		vim.api.nvim_create_autocmd("FileType", {
-			pattern = { "NvimTree" },
+			pattern = { "NvimTree", "alpha" },
 			callback = function()
 				vim.b.miniindentscope_disable = true
 			end,

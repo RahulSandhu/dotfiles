@@ -18,7 +18,8 @@
   "clock": {
     "format": "{:%A %d %B %Y | %H:%M}",
     "tooltip": false,
-    "on-click": "exec galendae"
+    "on-click": "exec galendae",
+    "on-click-right": "~/.config/terrahour/scripts/toggle-terrahour.sh"
   },
 
   // Custom menu module

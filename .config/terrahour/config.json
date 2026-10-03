@@ -1,0 +1,89 @@
+{
+ "cities": [
+   {
+   "name": "Barcelona",
+   "zone": "Europe/Madrid",
+   "lat": 41.39,
+   "lon": 2.17,
+   "cidx": 0
+  },
+  {
+   "name": "San Francisco",
+   "zone": "America/Los_Angeles",
+   "lat": 37.77,
+   "lon": -122.42,
+   "cidx": 1
+  },
+  {
+   "name": "New York",
+   "zone": "America/New_York",
+   "lat": 40.71,
+   "lon": -74.01,
+   "cidx": 2
+  },
+  {
+   "name": "London",
+   "zone": "Europe/London",
+   "lat": 51.51,
+   "lon": -0.13,
+   "cidx": 3
+  },
+  {
+   "name": "UTC",
+   "zone": "UTC",
+   "lat": 12.0,
+   "lon": 0.0,
+   "cidx": 4
+  },
+  {
+   "name": "Dubai",
+   "zone": "Asia/Dubai",
+   "lat": 25.2,
+   "lon": 55.27,
+   "cidx": 5
+  },
+  {
+   "name": "Mumbai",
+   "zone": "Asia/Kolkata",
+   "lat": 19.08,
+   "lon": 72.88,
+   "cidx": 6
+  },
+  {
+   "name": "Singapore",
+   "zone": "Asia/Singapore",
+   "lat": 1.35,
+   "lon": 103.82,
+   "cidx": 7
+  },
+  {
+   "name": "Tokyo",
+   "zone": "Asia/Tokyo",
+   "lat": 35.68,
+   "lon": 139.69,
+   "cidx": 8
+  },
+  {
+   "name": "Sydney",
+   "zone": "Australia/Sydney",
+   "lat": -33.87,
+   "lon": 151.21,
+   "cidx": 9
+  }
+ ],
+ "h12": false,
+ "work": [
+  9,
+  17
+ ],
+ "overlap": true,
+ "theme": "midnight",
+ "home": {
+  "name": "Barcelona",
+  "zone": "Europe/Madrid"
+ },
+ "weather": "on",
+ "compact": "auto",
+ "wheel": "zoom",
+ "alerts": []
+}

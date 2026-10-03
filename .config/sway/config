@@ -4,16 +4,21 @@
 set $mod Mod4
 set $smod Shift
 
-# Font
-font JetBrainsMono Nerd Font 16
-
 # Movement keys
 set $left h
 set $down j
 set $up k
 set $right l
 
-# Gaps 
+# Window behavior
+floating_modifier $mod normal
+
+### Appearance ###
+
+# Font
+font JetBrainsMono Nerd Font 16
+
+# Gaps
 gaps inner 0
 gaps outer 0
 gaps top 0
@@ -21,6 +26,14 @@ gaps top 0
 # Borders
 default_border pixel 5
 default_floating_border pixel 5
+
+# Client colors                 border    background text     indicator child_border
+client.focused                  #4a5d46   #000000   #e0e0e0   #4a5d46   #4a5d46
+client.focused_inactive         #6e6e70   #000000   #6e6e70   #6e6e70   #6e6e70
+client.unfocused                #6e6e70   #000000   #6e6e70   #6e6e70   #6e6e70
+client.urgent                   #b8d9ae   #b8d9ae   #000000   #b8d9ae   #b8d9ae
+client.placeholder              #6e6e70   #000000   #6e6e70   #6e6e70   #6e6e70
+client.background               #000000
 
 ### Output configuration ###
 
@@ -30,14 +43,6 @@ output eDP-1 resolution 1920x1200
 # Set wallpaper from the color palette
 output * bg #b8d9ae solid_color
 # output * bg ~/pictures/wallpapers/example-image.png fill
-
-# Client colors                 border    background text     indicator child_border
-client.focused                  #4a5d46   #000000   #e0e0e0   #4a5d46   #4a5d46
-client.focused_inactive         #6e6e70   #000000   #6e6e70   #6e6e70   #6e6e70
-client.unfocused                #6e6e70   #000000   #6e6e70   #6e6e70   #6e6e70
-client.urgent                   #b8d9ae   #b8d9ae   #000000   #b8d9ae   #b8d9ae
-client.placeholder              #6e6e70   #000000   #6e6e70   #6e6e70   #6e6e70
-client.background               #000000
 
 ### Input configuration ###
 
@@ -55,19 +60,40 @@ input type:keyboard {
 
 ### Autostart ###
 
-# Waybar and Swaync
+# Status bar and OSD (swaync is systemd-managed: swaync.service)
 exec_always bash -c 'pkill waybar; waybar &'
-exec_always bash -c 'pkill swaync; swaync &'
 exec_always bash -c 'pkill swayosd-server; swayosd-server -s ~/.config/swayosd/style.css &'
+
+# Notifications are owned by systemd; start the unit at session start
+exec systemctl --user start swaync.service
 
 # Scripts
 exec python ~/.config/sway/scripts/autotiling.py
 exec python ~/.config/sway/scripts/workspaces.py
 
 # Daemons
-exec_always --no-startup-id ~/.config/swaync/scripts/battery.sh
-exec_always --no-startup-id ~/.config/swaync/scripts/vpn.sh --monitor
+exec_always ~/.config/swaync/scripts/battery.sh
+exec_always ~/.config/swaync/scripts/vpn.sh --monitor
+exec_always ~/.config/swaync/scripts/wifi.sh --monitor
+
+# Bluetooth applet is owned by systemd; import the display env first so GTK
+# can open a display, then start the unit (see config.d/50-systemd-user.conf)
+exec bash -c 'systemctl --user import-environment DISPLAY SWAYSOCK WAYLAND_DISPLAY XDG_CURRENT_DESKTOP; systemctl --user start blueman-applet.service'
+
+# Sleep after 10 min
+exec_always swayidle -w \
+    timeout 600 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"'
+
+# Input method and clipboard
+exec wvkbd-mobintl --hidden -L 320 -H 400 --no-feedback
 exec clipse -listen
+
+### Switches ###
+
+# Tablet mode: show/hide the on-screen keyboard and toggle display auto-rotation
+bindswitch tablet:on  exec pkill -USR2 -x wvkbd-mobintl, exec ~/.config/sway/scripts/autorotate.sh start
+bindswitch tablet:off exec pkill -USR1 -x wvkbd-mobintl, exec ~/.config/sway/scripts/autorotate.sh stop
 
 ### Applications ###
 
@@ -82,8 +108,10 @@ bindsym $mod+$smod+p exec ~/.config/sway/scripts/color-picker.sh
 bindsym $mod+period exec ~/.config/wofi/scripts/emoji-picker.sh
 bindsym $mod+m exec ~/.config/betterbird/scripts/toggle-betterbird.sh
 
-# Specific applications layout
+### Window rules ###
+
 for_window [app_id="galendae"] move position 765 0
+for_window [app_id="terrahour"] floating enable, resize set 1100 720, move position 410 0
 for_window [app_id="clipse"] floating enable, resize set 950 950
 for_window [app_id="notse"] floating enable, resize set 850 950
 for_window [app_id="eu.betterbird.Betterbird"] floating enable, move position center
@@ -129,6 +157,10 @@ bindsym $mod+$smod+$down move down
 bindsym $mod+$smod+$up move up
 bindsym $mod+$smod+$right move right
 
+# Focus between tiling/stacked windows
+bindsym $mod+space focus mode_toggle
+bindsym $mod+a focus parent
+
 ### Window layout & mode control ###
 
 # Layout styles
@@ -143,27 +175,12 @@ bindsym $mod+v splitv
 # Window state (fullscreen, floating)
 bindsym $mod+f fullscreen
 bindsym $mod+Shift+space floating toggle
-floating_modifier $mod normal
-
-# Focus and navigation
-bindsym $mod+space focus mode_toggle
-bindsym $mod+a focus parent
 
 # Window and config actions
 bindsym $mod+$smod+q kill
 bindsym $mod+$smod+r exec_always swaymsg reload && notify-send --app-name="Sway" --icon=preferences-system --urgency=low --expire-time=3000 "Sway Reloaded" "Configuration reloaded successfully."
 
-### Scratchpad ###
-
-# Move to scratchpad
-bindsym $mod+Shift+minus move scratchpad
-
-# Show/hide/cycle scratchpad
-bindsym $mod+minus scratchpad show
-
-### Resize mode ###
-
-# Resizing windows and adjusting gaps with arrow keys
+# Resize mode
 mode "resize" {
     bindsym $left  resize shrink width 10 px
     bindsym $down  resize grow height 10 px
@@ -180,6 +197,14 @@ mode "resize" {
     bindsym $mod+r mode "default"
 }
 bindsym $mod+r mode "resize"
+
+### Scratchpad ###
+
+# Move to scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show/hide/cycle scratchpad
+bindsym $mod+minus scratchpad show
 
 ### Function keys ###
 
@@ -227,10 +252,5 @@ bindsym --locked XF86Tools exec ~/.config/herdr/scripts/toggle-herdr.sh
 
 ### Others ###
 
-# Sleep after 10 min
-exec_always swayidle -w \
-    timeout 600 'swaymsg "output * dpms off"' \
-    resume 'swaymsg "output * dpms on"'
-
-# Systemd environment fix 
+# Systemd environment fix
 include /etc/sway/config.d/*

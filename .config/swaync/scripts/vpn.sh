@@ -2,149 +2,109 @@
 
 ID=9981
 
-is_pia_connected() {
-    command -v piactl &>/dev/null && [ "$(piactl get connectionstate 2>/dev/null)" = "Connected" ]
+tailscale_is_up() {
+    command -v tailscale >/dev/null 2>&1 || return 1
+    local state
+    state=$(tailscale status --json 2>/dev/null | tr -d ' \n' \
+        | grep -o '"BackendState":"[^"]*"' | head -1 | cut -d'"' -f4)
+    [ "$state" = "Running" ]
 }
 
-notify_connected() {
-    local message=$1
-    notify-send \
-        --app-name="PIA VPN" \
-        --icon=network-vpn \
-        --urgency=low \
-        --expire-time=5000 \
-        --replace-id="$ID" \
-        "VPN Connected" "$message"
+wg_interfaces() {
+    ip -o link show type wireguard 2>/dev/null | awk -F': ' '{print $2}' | cut -d@ -f1
 }
 
-notify_disconnected() {
-    notify-send \
-        --app-name="PIA VPN" \
-        --icon=network-vpn-disconnected-symbolic \
-        --urgency=normal \
-        --expire-time=5000 \
-        --replace-id="$ID" \
-        "VPN Disconnected" "Connection is now unsecured"
+nm_vpn_connections() {
+    nmcli -t -f NAME,TYPE connection show --active 2>/dev/null | grep -E ':(vpn|wireguard)$' | cut -d: -f1
+}
+
+first_active() {
+    tailscale_is_up && echo "Tailscale"
+    local i n
+    for i in $(wg_interfaces); do echo "WireGuard:$i"; done
+    for n in $(nm_vpn_connections); do echo "VPN:$n"; done
+}
+
+tunnel_detail() {
+    case "$1" in
+        Tailscale)   tailscale ip -4 2>/dev/null | head -1 ;;
+        VPN:*)       nmcli -g IP4.ADDRESS connection show "${1#VPN:}" 2>/dev/null | head -1 | cut -d/ -f1 ;;
+        WireGuard:*) ip -4 -o addr show "${1#WireGuard:}" 2>/dev/null | awk '{print $4}' | cut -d/ -f1 | head -1 ;;
+    esac
 }
 
 notify_connecting() {
-    notify-send \
-        --app-name="PIA VPN" \
-        --icon=network-wireless-acquiring-symbolic \
-        --urgency=normal \
-        --expire-time=3000 \
-        --replace-id="$ID" \
-        "VPN Connecting" "Negotiating keys..."
+    notify-send --app-name="VPN" --icon=network-wireless-acquiring-symbolic \
+        --urgency=normal --expire-time=3000 --replace-id="$ID" \
+        "VPN Connecting" "Bringing up Tailscale..."
 }
 
-# Get the active nmcli VPN name
-get_nmcli_vpn() {
-    nmcli -t -f NAME,TYPE connection show --active 2>/dev/null | grep ':vpn$' | head -1 | cut -d':' -f1
+label_text() {
+    case "$1" in
+        Tailscale)   echo "Tailscale" ;;
+        WireGuard:*) echo "WireGuard (${1#WireGuard:})" ;;
+        VPN:*)       echo "VPN \"${1#VPN:}\"" ;;
+        *)           echo "$1" ;;
+    esac
 }
 
-# Toggle mode (called by swaync button)
+notify_connected() {
+    local ip title="VPN Connected"
+    ip=$(tunnel_detail "$1")
+    [ "$1" = "Tailscale" ] && title="Tailnet Connected"
+    notify-send --app-name="VPN" --icon=network-vpn --urgency=low \
+        --expire-time=5000 --replace-id="$ID" "$title" "$(label_text "$1")${ip:+ · $ip}"
+}
+
+notify_disconnected() {
+    notify-send --app-name="VPN" --icon=network-vpn-disconnected-symbolic \
+        --urgency=normal --expire-time=5000 --replace-id="$ID" \
+        "VPN Disconnected" "Disconnected from $(label_text "$1")"
+}
+
+disconnect_all() {
+    tailscale_is_up && tailscale down >/dev/null 2>&1
+    local n i
+    for n in $(nm_vpn_connections); do nmcli connection down "$n" >/dev/null 2>&1; done
+    for i in $(wg_interfaces); do sudo -n wg-quick down "$i" >/dev/null 2>&1 || true; done
+}
+
+# something is up -> disconnect it, otherwise bring Tailscale up
 toggle() {
-    if is_pia_connected; then
-        piactl disconnect
+    if [ -n "$(first_active)" ]; then
+        disconnect_all
     else
-        local active_vpn
-        active_vpn=$(get_nmcli_vpn)
-        if [ -n "$active_vpn" ]; then
-            nmcli connection down "$active_vpn"
-        else
-            piactl connect
-        fi
+        notify_connecting
+        tailscale up >/dev/null 2>&1
     fi
 }
 
-# Monitor PIA state via piactl monitor
-monitor_pia() {
-    while read -r STATUS; do
-        case "$STATUS" in
-            Connecting)
-                notify_connecting
-                ;;
-            Disconnected)
-                notify_disconnected
-                ;;
-            Connected)
-                local FINAL_IP="Unknown"
-                for _ in {1..20}; do
-                    local IP
-                    IP=$(piactl get vpnip)
-                    if [[ "$IP" != "Unknown" && -n "$IP" ]]; then
-                        FINAL_IP="$IP"
-                        break
-                    fi
-                    sleep 0.5
-                done
+monitor_mode() {
+    exec 9>/tmp/vpn-monitor.lock
+    flock -n 9 || exit 0
 
-                local REGION
-                REGION=$(piactl get region)
-                notify_connected "Region: $REGION\nIP: $FINAL_IP"
-                ;;
-        esac
-    done < <(piactl monitor connectionstate)
-}
+    local prev; prev=$(first_active)
 
-# Monitor generic nmcli VPN state changes
-monitor_nmcli() {
-    local prev_state="unknown"
-    local active_vpn
-
-    active_vpn=$(get_nmcli_vpn)
-    if [ -n "$active_vpn" ]; then
-        prev_state="Connected"
-        if ! is_pia_connected; then
-            local IP
-            IP=$(nmcli -g IP4.ADDRESS device show tun0 2>/dev/null | cut -d'/' -f1)
-            notify_connected "$active_vpn\nIP: ${IP:-Unknown}"
-        fi
-    else
-        prev_state="Disconnected"
+    # announce the starting state once (retry until the notification daemon is up)
+    if [ -n "$prev" ]; then
+        local i
+        for i in {1..10}; do
+            notify_connected "$prev" && break
+            sleep 0.5
+        done
     fi
 
     while true; do
-        active_vpn=$(get_nmcli_vpn)
-        if [ -n "$active_vpn" ]; then
-            local state="Connected"
-        else
-            local state="Disconnected"
+        local cur; cur=$(first_active)
+        if [ "$cur" != "$prev" ]; then
+            if [ -n "$cur" ]; then notify_connected "$cur"
+            else notify_disconnected "$prev"; fi
+            prev="$cur"
         fi
-
-        if [ "$state" != "$prev_state" ] && [ "$prev_state" != "unknown" ]; then
-            if ! is_pia_connected; then
-                if [ "$state" = "Connected" ]; then
-                    local IP
-                    IP=$(nmcli -g IP4.ADDRESS device show tun0 2>/dev/null | cut -d'/' -f1)
-                    notify_connected "$active_vpn\nIP: ${IP:-Unknown}"
-                else
-                    notify_disconnected
-                fi
-            fi
-        fi
-
-        prev_state="$state"
         sleep 2
     done
 }
 
-# Run as monitor daemon
-monitor_mode() {
-    # Single-instance lock
-    exec 9>/tmp/vpn-monitor.lock
-    flock -n 9 || exit 0
-
-    if command -v piactl &>/dev/null; then
-        monitor_pia &
-    fi
-
-    monitor_nmcli &
-
-    wait
-}
-
-# Main entrypoint
 if [ "$1" = "--monitor" ]; then
     monitor_mode
 else

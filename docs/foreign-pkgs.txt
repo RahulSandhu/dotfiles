@@ -7,5 +7,6 @@ gtrash-bin
 matlab-mpm
 swayosd-git
 wl-screenrec-git
+wvkbd
 yay
 yay-debug

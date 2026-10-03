@@ -5,7 +5,7 @@ notify-send \
     --icon=network-server \
     --urgency=low \
     --expire-time=3000 \
-    "Sync Started" "Syncing to Google Drive..."
+    "Sync Started" "Syncing to the homelab..."
 
 rclone \
   --config ${HOME}/.config/rclone/rclone.conf \
@@ -13,17 +13,15 @@ rclone \
   --log-file=${HOME}/.config/rclone/rclone.log \
   --progress \
   --retries 3 \
-  --max-backlog 999999 \
-  --buffer-size 256M \
-  --tpslimit 8 \
-  --transfers 4 \
-  --checkers 4 \
-  --drive-pacer-min-sleep 100ms \
+  --low-level-retries 10 \
+  --buffer-size 32M \
+  --transfers 8 \
+  --checkers 16 \
   sync \
   --skip-links \
   --delete-during \
   ${HOME}/ \
-  "google drive:framework12" \
+  "homelab:/srv/backup" \
   --filter-from=${HOME}/.config/rclone/scripts/filters.txt \
   --delete-excluded \
   > /dev/null 2>&1
@@ -36,12 +34,12 @@ if [ $EXIT_CODE -eq 0 ]; then
         --icon=network-server \
         --urgency=normal \
         --expire-time=5000 \
-        "Sync Complete" "Google Drive sync finished successfully"
+        "Sync Complete" "Homelab sync finished successfully"
 else
     notify-send \
         --app-name="rclone" \
         --icon=dialog-error \
         --urgency=critical \
         --expire-time=0 \
-        "Sync Failed" "Google Drive sync exited with code $EXIT_CODE"
+        "Sync Failed" "Homelab sync exited with code $EXIT_CODE"
 fi

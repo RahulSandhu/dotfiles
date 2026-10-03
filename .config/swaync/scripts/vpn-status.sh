@@ -1,18 +1,13 @@
 #!/bin/bash
 
-# Check PIA
-if command -v piactl &>/dev/null; then
-    PIA_STATUS=$(piactl get connectionstate)
-    if [ "$PIA_STATUS" = "Connected" ]; then
-        echo "true"
-        exit 0
-    fi
+if command -v tailscale >/dev/null 2>&1; then
+    state=$(tailscale status --json 2>/dev/null | tr -d ' \n' \
+        | grep -o '"BackendState":"[^"]*"' | head -1 | cut -d'"' -f4)
+    [ "$state" = "Running" ] && { echo true; exit 0; }
 fi
 
-# Check any nmcli VPN (by connection type, not name)
-if nmcli -t -f TYPE connection show --active 2>/dev/null | grep -q '^vpn$'; then
-    echo "true"
-    exit 0
-fi
+ip -o link show type wireguard 2>/dev/null | grep -q . && { echo true; exit 0; }
 
-echo "false"
+nmcli -t -f TYPE connection show --active 2>/dev/null | grep -qE '^(vpn|wireguard)$' && { echo true; exit 0; }
+
+echo false

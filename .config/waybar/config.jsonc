@@ -18,7 +18,7 @@
   "clock": {
     "format": "{:%A %d %B %Y | %H:%M}",
     "tooltip": false,
-    "on-click": "exec galendae",
+    "on-click": "~/.config/waybar/scripts/toggle-galendae.sh",
     "on-click-right": "~/.config/terrahour/scripts/toggle-terrahour.sh"
   },
 

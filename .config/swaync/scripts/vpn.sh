@@ -69,6 +69,16 @@ disconnect_all() {
     for i in $(wg_interfaces); do sudo -n wg-quick down "$i" >/dev/null 2>&1 || true; done
 }
 
+# Follow the tailnet state for the homelab music mount: mount ~/music when
+# Tailscale is connected, unmount otherwise. The actual mount is done by
+# ~/.config/rclone/scripts/rclone-music.sh.
+music_follow_vpn() {
+    case "$1" in
+        Tailscale) "$HOME/.config/rclone/scripts/rclone-music.sh" mount >/dev/null 2>&1 & ;;
+        *)         "$HOME/.config/rclone/scripts/rclone-music.sh" unmount >/dev/null 2>&1 ;;
+    esac
+}
+
 # something is up -> disconnect it, otherwise bring Tailscale up
 toggle() {
     if [ -n "$(first_active)" ]; then
@@ -94,12 +104,16 @@ monitor_mode() {
         done
     fi
 
+    # bring the music mount in line with the current tailnet state
+    music_follow_vpn "$prev"
+
     while true; do
         local cur; cur=$(first_active)
         if [ "$cur" != "$prev" ]; then
             if [ -n "$cur" ]; then notify_connected "$cur"
             else notify_disconnected "$prev"; fi
             prev="$cur"
+            music_follow_vpn "$cur"
         fi
         sleep 2
     done

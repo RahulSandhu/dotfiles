@@ -18,6 +18,16 @@ return {
 				prettier = {
 					prepend_args = { "--print-width", "200" },
 				},
+				["bibtex-tidy"] = {
+					command = vim.fn.expand("~/.npm-global/bin/bibtex-tidy"),
+					args = {
+						"--quiet",
+						"--space=2",
+						"--align=14",
+						"--wrap=80",
+						"--blank-lines",
+					},
+				},
 			},
 
 			-- Formatters by filetype
@@ -27,6 +37,7 @@ return {
 				markdown = { "prettier" },
 				json = { "prettier" },
 				tex = { "latexindent" },
+				bib = { "bibtex-tidy" },
 				go = { "goimports", "gofumpt" },
 				sql = { "sqlfluff" },
 				r = { "air" },

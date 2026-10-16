@@ -1,13 +1,11 @@
 #!/bin/bash
 
-# Single-instance lock 
+# Single-instance lock
 exec 9>/tmp/battery.lock
 flock -n 9 || exit 0
 
-# Define an ID
 ID=999
 
-# Main loop to check battery periodically
 while true; do
     PERCENT=$(cat /sys/class/power_supply/BAT1/capacity)
     STATUS=$(cat /sys/class/power_supply/BAT1/status)
@@ -28,5 +26,5 @@ while true; do
             --replace-id="$ID" \
             "Battery Charged: ${PERCENT}%" "Charging — unplug charger"
     fi
-    sleep 300 
+    sleep 300
 done

@@ -3,6 +3,9 @@
 # Make read-only trashed dirs (e.g. Go module cache) deletable
 chmod -R u+w "$HOME/.local/share/Trash/files" 2>/dev/null
 
+# Start each month with a clean screenshots folder
+rm -rf "$HOME/pictures/screenshots/"* 2>/dev/null
+
 /usr/bin/gtrash prune --day 0 --force
 
 EXIT_CODE=$?

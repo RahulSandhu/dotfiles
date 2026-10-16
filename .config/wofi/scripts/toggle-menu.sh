@@ -22,6 +22,7 @@ case "$MODE" in
     drun) wofi --show drun & ;;
     display) ~/.config/wofi/scripts/selector.sh display & ;;
     capture) ~/.config/wofi/scripts/selector.sh capture & ;;
+    emoji) ~/.config/wofi/scripts/emoji-picker.sh & ;;
 esac
 
 printf '%s' "$MODE" > "$STATE_FILE"

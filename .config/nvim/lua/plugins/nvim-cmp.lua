@@ -28,7 +28,7 @@ return {
 		local function set_cmp_highlights()
 			vim.api.nvim_set_hl(0, "CmpPmenu", { fg = "#e0e0e0", bg = "#000000" })
 			vim.api.nvim_set_hl(0, "CmpDoc", { fg = "#e0e0e0", bg = "#000000" })
-			vim.api.nvim_set_hl(0, "CmpBorder", { fg = "#4a5d46", bg = "#000000" })
+			vim.api.nvim_set_hl(0, "CmpBorder", { fg = "#445c3d", bg = "#000000" })
 			vim.api.nvim_set_hl(0, "PmenuSel", { fg = "#000000", bg = "#b8d9ae", bold = true })
 		end
 

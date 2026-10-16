@@ -61,7 +61,7 @@ if [ "$CAPTURE_SUCCESS" = true ]; then
         done
     ) &
     WATCHER_PID=$!
-    set +m 
+    set +m
     swappy --file "$FILENAME"
 else
     notify-send \

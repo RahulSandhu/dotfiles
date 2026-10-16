@@ -76,7 +76,6 @@ alias cat='bat'
 alias ls='exa --icons=always'
 alias neofetch='fastfetch'
 alias tree='exa --icons=always --tree'
-
 alias R='R --no-save'
 
 # Gtrash integrations
@@ -95,7 +94,7 @@ eval "$(rbenv init - zsh)"
 export FZF_CTRL_R_OPTS="--exact"
 eval "$(fzf --zsh)"
 
-# Zoxide 
+# Zoxide
 eval "$(zoxide init --cmd cd zsh)"
 
 # Environments activation

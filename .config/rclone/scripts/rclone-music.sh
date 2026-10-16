@@ -44,7 +44,11 @@ mount_music() {
 
         # Give the attempt a few seconds to establish the mount point.
         for _ in 1 2 3 4 5; do
-            mountpoint -q "$MOUNT" && exit 0
+            if mountpoint -q "$MOUNT"; then
+                # The library just appeared; tell mpd to re-index it.
+                rmpc update >/dev/null 2>&1 || true
+                exit 0
+            fi
             sleep 1
         done
 

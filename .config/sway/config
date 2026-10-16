@@ -28,7 +28,7 @@ default_border pixel 5
 default_floating_border pixel 5
 
 # Client colors                 border    background text     indicator child_border
-client.focused                  #4a5d46   #000000   #e0e0e0   #4a5d46   #4a5d46
+client.focused                  #445c3d   #000000   #e0e0e0   #445c3d   #445c3d
 client.focused_inactive         #6e6e70   #000000   #6e6e70   #6e6e70   #6e6e70
 client.unfocused                #6e6e70   #000000   #6e6e70   #6e6e70   #6e6e70
 client.urgent                   #b8d9ae   #b8d9ae   #000000   #b8d9ae   #b8d9ae
@@ -71,6 +71,10 @@ exec systemctl --user start swaync.service
 exec python ~/.config/sway/scripts/autotiling.py
 exec python ~/.config/sway/scripts/workspaces.py
 
+# Move the pointer to the centre once per session: if the touchpad's legacy
+# mouse collection pinned it into a corner, this brings it into view.
+exec swaymsg seat seat0 cursor move 960 600
+
 # Daemons
 exec_always ~/.config/swaync/scripts/battery.sh
 exec_always ~/.config/swaync/scripts/vpn.sh --monitor
@@ -83,7 +87,7 @@ exec bash -c 'systemctl --user import-environment DISPLAY SWAYSOCK WAYLAND_DISPL
 # Sleep after 10 min
 exec_always swayidle -w \
     timeout 600 'swaymsg "output * dpms off"' \
-    resume 'swaymsg "output * dpms on"'
+    resume 'swaymsg "output * dpms on"; swaymsg seat seat0 cursor move 960 600'
 
 # Input method and clipboard
 exec wvkbd-mobintl --hidden -L 320 -H 400 --no-feedback
@@ -105,7 +109,7 @@ bindsym $mod+c exec ~/.config/clipse/scripts/toggle-clipboard.sh
 bindsym $mod+n exec ~/.config/notse/scripts/toggle-notes.sh
 bindsym $mod+$smod+e exec ~/.config/swaync/scripts/keyboard.sh
 bindsym $mod+$smod+p exec ~/.config/sway/scripts/color-picker.sh
-bindsym $mod+period exec ~/.config/wofi/scripts/emoji-picker.sh
+bindsym $mod+period exec ~/.config/wofi/scripts/toggle-menu.sh emoji
 bindsym $mod+m exec ~/.config/betterbird/scripts/toggle-betterbird.sh
 
 ### Window rules ###

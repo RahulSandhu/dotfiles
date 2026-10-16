@@ -3,9 +3,9 @@ return {
 	"nanozuki/tabby.nvim",
 	config = function()
 		local theme = {
-			fill = { bg = "#1a1a1a" }, -- tabline background
+			fill = { bg = "#000000" }, -- tabline background
 			sel = { fg = "#000000", bg = "#b8d9ae", style = "bold" }, -- selected tab (accent green)
-			tab = { fg = "#b0b0b0", bg = "#262626" }, -- inactive tabs
+			tab = { fg = "#6e6e70", bg = "#000000" }, -- inactive tabs
 		}
 
 		require("tabby").setup({

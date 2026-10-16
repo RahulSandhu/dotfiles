@@ -4,15 +4,6 @@
 # Fetches the full Unicode emoji list on first run and caches it. Selected
 # glyph is copied to the clipboard via wl-copy.
 
-PID_FILE="/tmp/wofi-emoji.pid"
-
-if [ -f "$PID_FILE" ]; then
-    exit 0
-fi
-
-echo $$ > "$PID_FILE"
-trap 'rm -f "$PID_FILE"' EXIT INT TERM
-
 CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/wofi-emoji"
 CACHE_FILE="$CACHE_DIR/picker.txt"
 MAX_AGE_DAYS=30

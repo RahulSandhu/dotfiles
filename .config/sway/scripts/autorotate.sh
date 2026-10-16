@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 # autorotate.sh - rotate the internal panel to follow device orientation.
 #
 # Intended to run only while the laptop is in tablet mode; sway's bindswitch

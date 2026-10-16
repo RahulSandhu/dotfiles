@@ -1,11 +1,9 @@
 #!/bin/bash
 
-# Define paths 
 SCRIPTS_DIR="$HOME/.config/wofi/scripts"
 REC_PID_FILE="/tmp/wl_screenrec.pid"
 CAST_PID_FILE="/tmp/wl_screencast.pid"
 
-# Function to handle screenshot selection
 show_screenshot_menu() {
     screenshot_type=$(printf "󰍹  Full Screen\n󰒅  Selected Area" | wofi --dmenu --prompt="Select screenshot type:")
     case "$screenshot_type" in
@@ -18,7 +16,6 @@ show_screenshot_menu() {
     esac
 }
 
-# Function to handle recording selection
 show_recording_menu() {
     recording_type=$(printf "󰍹  Full Screen\n󰒅  Selected Area" | wofi --dmenu --prompt="Select recording type:")
     case "$recording_type" in
@@ -31,7 +28,6 @@ show_recording_menu() {
     esac
 }
 
-# Function to handle screencast selection
 show_screencast_menu() {
     screencast_type=$(printf "󰍹  Full Screen\n󰒅  Selected Area" | wofi --dmenu --prompt="Select screencast type:")
     case "$screencast_type" in

@@ -37,7 +37,6 @@ vim.api.nvim_set_hl(0, "GitSignsCurrentLineBlame", {
 vim.opt.winblend = 0
 vim.opt.pumblend = 0
 
--- Display line numbers
 opt.number = true
 opt.relativenumber = false
 
@@ -52,13 +51,10 @@ opt.softtabstop = 2
 opt.smartindent = true
 opt.breakindent = true
 
--- Customize backspace behavior
 opt.backspace = "indent,eol,start"
 
--- Set textwidth
 opt.textwidth = 79
 
--- Disable line wrapping
 opt.wrap = false
 opt.winborder = "single"
 
@@ -71,13 +67,11 @@ opt.clipboard:append("unnamedplus")
 opt.ignorecase = true
 opt.smartcase = true
 
--- Cursor line highlighting
 opt.cursorline = true
 
 -- Always show the sign column to avoid shifting the text when signs appear
 opt.signcolumn = "yes:1"
 
--- Configure the command line height
 opt.cmdheight = 1
 
 -- Sets the status line content
@@ -100,10 +94,8 @@ opt.timeoutlen = 400
 opt.updatetime = 250
 opt.shortmess:append("A")
 
--- Configure auto-completion menu behavior
 opt.completeopt = "menuone,noinsert"
 
--- Configure the maximum fold level for code folding
 opt.foldlevel = 99
 
 -- Disable conceal feature except for minimal text concealment

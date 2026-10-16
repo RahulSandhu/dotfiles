@@ -13,8 +13,8 @@ help:
 all: sync-packages install
 
 sync-packages:
-	pacman -Qenq > docs/native-pkgs.txt
-	pacman -Qmeq > docs/foreign-pkgs.txt
+	pacman -Qenq > native-pkgs.txt
+	pacman -Qmeq > foreign-pkgs.txt
 
 install:
 	stow --adopt -R -t $(HOME) -d $(STOW_DIR) $(STOW_PKG)

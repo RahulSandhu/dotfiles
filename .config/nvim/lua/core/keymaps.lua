@@ -78,17 +78,6 @@ function M.cmp(cmp)
 	})
 end
 
--- Minuet
-set_keymap("i", "<A-y>", function()
-	require("minuet.virtualtext").action.accept()
-end, "Accept AI suggestion")
-set_keymap("i", "<A-l>", function()
-	require("minuet.virtualtext").action.accept_line()
-end, "Accept AI suggestion line")
-set_keymap("i", "<A-e>", function()
-	require("minuet.virtualtext").action.dismiss()
-end, "Dismiss AI suggestion")
-
 -- Gitsigns
 set_keymap("n", "]h", function()
 	require("gitsigns").nav_hunk("next")

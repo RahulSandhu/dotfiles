@@ -64,6 +64,7 @@ inotify-tools
 intel-gpu-tools
 intel-media-driver
 intel-ucode
+iperf3
 iwd
 jdk-openjdk
 jdk17-openjdk

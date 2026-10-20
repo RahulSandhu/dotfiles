@@ -43,11 +43,11 @@
 
   "permissions": [
     { "action": "websearch", "resource": "*", "effect": "allow" },
-    { "action": "webfetch",  "resource": "*", "effect": "allow" },
-    { "action": "read", "resource": "$HOME/.zshenv",   "effect": "deny" },
+    { "action": "webfetch", "resource": "*", "effect": "allow" },
+    { "action": "read", "resource": "$HOME/.zshenv", "effect": "deny" },
     { "action": "read", "resource": "$HOME/.zshenv.*", "effect": "deny" },
-    { "action": "read", "resource": "$HOME/**/.env",    "effect": "deny" },
-    { "action": "read", "resource": "$HOME/**/.env.*",  "effect": "deny" }
+    { "action": "read", "resource": "$HOME/**/.env", "effect": "deny" },
+    { "action": "read", "resource": "$HOME/**/.env.*", "effect": "deny" }
   ],
 
   "plugin": ["superpowers@git+https://github.com/obra/superpowers.git"],

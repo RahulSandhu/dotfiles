@@ -1,7 +1,7 @@
-.PHONY: help install sync-packages all
-
 STOW_DIR := $(dir $(CURDIR))
 STOW_PKG := $(notdir $(CURDIR))
+
+.PHONY: help all sync-packages install
 
 help:
 	@echo "Available targets:"

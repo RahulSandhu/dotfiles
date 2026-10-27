@@ -81,7 +81,7 @@ The color scheme is inspired by the **Framework 12 Sage** laptop.
 | clipse        | `.config/clipse/`                                    | Clipboard manager with history.                                                              |
 | galendae      | `.config/galendae/`                                  | Calendar popup launched from Waybar.                                                         |
 | gtrash        | `.config/gtrash/`                                    | Trash wrapper; `rm` aliases put files in trash.                                              |
-| handy         | `.config/handy/`                                     | Offline speech-to-text dictation; toggle script bound to `$mod+o` in Sway.                    |
+| handy         | `.config/handy/`                                     | Offline speech-to-text dictation; toggle script bound to `$mod+o` in Sway.                   |
 | herdr         | `.config/herdr/`                                     | Agent-native terminal multiplexer for AI coding agents.                                      |
 | kitty         | `.config/kitty/`                                     | Terminal emulator with custom colors and font.                                               |
 | mpd           | `.config/mpd/`                                       | Music Player Daemon.                                                                         |

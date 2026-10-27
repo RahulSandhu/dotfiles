@@ -21,7 +21,6 @@ notify_connected() {
         --app-name="Sway" \
         --icon=network-wireless-connected-symbolic \
         --urgency=low \
-        --expire-time=3000 \
         --replace-id="$ID" \
         "Wi-Fi Connected" "SSID: ${1:-Unknown}\nIP: ${2:-Unknown}"
 }
@@ -31,7 +30,6 @@ notify_disconnected() {
         --app-name="Sway" \
         --icon=network-wireless-disabled-symbolic \
         --urgency=low \
-        --expire-time=3000 \
         --replace-id="$ID" \
         "Wi-Fi Disconnected" "Disconnected from ${1:-Unknown}"
 }
@@ -55,7 +53,6 @@ toggle() {
             --app-name="Sway" \
             --icon=network-wireless-connected-symbolic \
             --urgency=low \
-            --expire-time=3000 \
             --replace-id=9993 \
             "Wi-Fi Connected" "SSID: ${SSID:-Unknown}\nIP: ${IP:-Unknown}"
     else
@@ -64,7 +61,6 @@ toggle() {
             --app-name="Sway" \
             --icon=network-wireless-disabled-symbolic \
             --urgency=low \
-            --expire-time=3000 \
             --replace-id=9993 \
             "Wi-Fi Disconnected" "Off"
     fi

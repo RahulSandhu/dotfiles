@@ -4,6 +4,7 @@ clipse
 configuradorfnmt
 galendae-git
 gtrash-bin
+handy-bin
 matlab-mpm
 swayosd-git
 wl-screenrec-git

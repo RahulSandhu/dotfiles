@@ -54,6 +54,8 @@ go
 graphviz
 grim
 grub
+gst-libav
+gst-plugins-good
 gum
 gvfs-gphoto2
 gvfs-mtp
@@ -205,6 +207,7 @@ wl-clip-persist
 wl-clipboard
 wofi
 wpa_supplicant
+wtype
 xdg-desktop-portal-gtk
 xdg-desktop-portal-wlr
 xdg-user-dirs

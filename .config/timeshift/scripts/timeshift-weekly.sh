@@ -9,7 +9,6 @@ CURRENT_MONTH_PATTERN=$(date +%Y-%m)
     --app-name="Timeshift" \
     --icon=drive-harddisk \
     --urgency=low \
-    --expire-time=3000 \
     "Timeshift" "Creating ${MONTH_NAME} Week ${WEEK_NUM} snapshot..."
 
 # Check if any existing snapshot is from current month
@@ -20,7 +19,6 @@ if [ "$HAS_CURRENT_MONTH" -eq 0 ]; then
         --app-name="Timeshift" \
         --icon=drive-harddisk \
         --urgency=normal \
-        --expire-time=5000 \
         "Timeshift" "New month detected — deleting old snapshots..."
     /usr/bin/sudo /usr/bin/timeshift --delete-all
 fi
@@ -34,6 +32,5 @@ if [ $EXIT_CODE -ne 0 ]; then
         --app-name="Timeshift" \
         --icon=dialog-error \
         --urgency=critical \
-        --expire-time=0 \
         "Timeshift" "Snapshot creation failed (exit code ${EXIT_CODE})"
 fi

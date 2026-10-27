@@ -93,6 +93,9 @@ exec_always swayidle -w \
 exec wvkbd-mobintl --hidden -L 320 -H 400 --no-feedback
 exec clipse -listen
 
+# Speech-to-text (Handy): stays resident, toggled from the keybind below
+exec handy --start-hidden
+
 ### Switches ###
 
 # Tablet mode: show/hide the on-screen keyboard and toggle display auto-rotation
@@ -110,6 +113,7 @@ bindsym $mod+n exec ~/.config/notse/scripts/toggle-notes.sh
 bindsym $mod+$smod+e exec ~/.config/swaync/scripts/keyboard.sh
 bindsym $mod+$smod+p exec ~/.config/sway/scripts/color-picker.sh
 bindsym $mod+m exec ~/.config/betterbird/scripts/toggle-betterbird.sh
+bindsym $mod+o exec ~/.config/handy/scripts/toggle-handy.sh
 
 ### Window rules ###
 
@@ -181,7 +185,7 @@ bindsym $mod+Shift+space floating toggle
 
 # Window and config actions
 bindsym $mod+$smod+q kill
-bindsym $mod+$smod+r exec_always swaymsg reload && notify-send --app-name="Sway" --icon=preferences-system --urgency=low --expire-time=3000 "Sway Reloaded" "Configuration reloaded successfully."
+bindsym $mod+$smod+r exec_always swaymsg reload && notify-send --app-name="Sway" --icon=preferences-system --urgency=low "Sway Reloaded" "Configuration reloaded successfully."
 
 # Resize mode
 mode "resize" {

@@ -8,7 +8,6 @@ if rfkill list "$BT_IDX" | grep -q "Soft blocked: yes"; then
         --app-name="Sway" \
         --icon=bluetooth-active-symbolic \
         --urgency=low \
-        --expire-time=3000 \
         --replace-id=9994 \
         "Bluetooth" "On"
 else
@@ -17,7 +16,6 @@ else
         --app-name="Sway" \
         --icon=bluetooth-disabled-symbolic \
         --urgency=low \
-        --expire-time=3000 \
         --replace-id=9994 \
         "Bluetooth" "Off"
 fi

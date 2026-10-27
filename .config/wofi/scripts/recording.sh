@@ -20,7 +20,6 @@ if [ -f "$PID_FILE" ]; then
         --app-name="Sway" \
         --icon=media-playback-stop \
         --urgency=normal \
-        --expire-time=5000 \
         "Recording Stopped" "Saved to: $SAVED_PATH"
     exit 0
 fi
@@ -70,5 +69,4 @@ notify-send \
     --app-name="Sway" \
     --icon=media-record \
     --urgency=low \
-    --expire-time=3000 \
     "Recording Started" "Capturing screen and audio"

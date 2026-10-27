@@ -49,3 +49,7 @@
 - **/.ruff_cache/**
 - **/target/**
 - **/*.egg-info/**
+
+# The sync writes its own log here; copying it live causes
+# "source file is being updated" errors and a retry every run.
+- /.config/rclone/rclone.log

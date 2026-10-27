@@ -14,7 +14,6 @@ while true; do
             --app-name="Sway" \
             --icon=battery-caution \
             --urgency=critical \
-            --expire-time=0 \
             --replace-id="$ID" \
             "Battery Low: ${PERCENT}%" "Discharging — plug in charger"
     elif [[ "$STATUS" == "Charging" && "$PERCENT" -ge 80 ]]; then
@@ -22,7 +21,6 @@ while true; do
             --app-name="Sway" \
             --icon=battery-good \
             --urgency=normal \
-            --expire-time=5000 \
             --replace-id="$ID" \
             "Battery Charged: ${PERCENT}%" "Charging — unplug charger"
     fi

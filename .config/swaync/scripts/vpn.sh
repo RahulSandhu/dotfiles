@@ -35,7 +35,7 @@ tunnel_detail() {
 
 notify_connecting() {
     notify-send --app-name="VPN" --icon=network-wireless-acquiring-symbolic \
-        --urgency=normal --expire-time=3000 --replace-id="$ID" \
+        --urgency=normal --replace-id="$ID" \
         "VPN Connecting" "Bringing up Tailscale..."
 }
 
@@ -53,12 +53,12 @@ notify_connected() {
     ip=$(tunnel_detail "$1")
     [ "$1" = "Tailscale" ] && title="Tailnet Connected"
     notify-send --app-name="VPN" --icon=network-vpn --urgency=low \
-        --expire-time=5000 --replace-id="$ID" "$title" "$(label_text "$1")${ip:+ · $ip}"
+        --replace-id="$ID" "$title" "$(label_text "$1")${ip:+ · $ip}"
 }
 
 notify_disconnected() {
     notify-send --app-name="VPN" --icon=network-vpn-disconnected-symbolic \
-        --urgency=normal --expire-time=5000 --replace-id="$ID" \
+        --urgency=normal --replace-id="$ID" \
         "VPN Disconnected" "Disconnected from $(label_text "$1")"
 }
 

@@ -14,7 +14,6 @@ if [ -f "$PID_FILE" ]; then
         --app-name="Sway" \
         --icon=preferences-desktop-remote-desktop \
         --urgency=normal \
-        --expire-time=5000 \
         "Streaming Stopped" "Stream ended"
     exit 0
 fi
@@ -57,5 +56,4 @@ notify-send \
     --app-name="Sway" \
     --icon=preferences-desktop-remote-desktop \
     --urgency=low \
-    --expire-time=3000 \
     "Streaming Started" "Connect to: http://${LOCAL_IP}:8080/stream.m3u8"

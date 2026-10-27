@@ -17,6 +17,5 @@ notify-send \
     --app-name="Sway" \
     --icon=input-keyboard-symbolic \
     --urgency=low \
-    --expire-time=3000 \
     --replace-id=9992 \
     "Keyboard Layout" "Switched to $CURRENT_LAYOUT"

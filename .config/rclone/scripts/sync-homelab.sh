@@ -4,7 +4,7 @@ notify-send \
     --app-name="rclone" \
     --icon=network-server \
     --urgency=low \
-    --expire-time=3000 \
+    --replace-id=9985 \
     "Sync Started" "Syncing to the homelab..."
 
 rclone \
@@ -33,13 +33,13 @@ if [ $EXIT_CODE -eq 0 ]; then
         --app-name="rclone" \
         --icon=network-server \
         --urgency=normal \
-        --expire-time=5000 \
+        --replace-id=9985 \
         "Sync Complete" "Homelab sync finished successfully"
 else
     notify-send \
         --app-name="rclone" \
         --icon=dialog-error \
         --urgency=critical \
-        --expire-time=0 \
+        --replace-id=9985 \
         "Sync Failed" "Homelab sync exited with code $EXIT_CODE"
 fi

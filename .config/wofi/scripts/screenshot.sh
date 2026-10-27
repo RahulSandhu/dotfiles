@@ -35,7 +35,6 @@ if [ "$CAPTURE_SUCCESS" = true ]; then
         --app-name="Sway" \
         --icon=camera-photo \
         --urgency=normal \
-        --expire-time=5000 \
         "Screenshot Saved" "$FILENAME"
     set -m
     (
@@ -55,7 +54,6 @@ if [ "$CAPTURE_SUCCESS" = true ]; then
                     --app-name="Sway" \
                     --icon=document-save \
                     --urgency=normal \
-                    --expire-time=5000 \
                     "Swappy Export" "Modified saved: $MODIFIED_FILE"
             fi
         done
@@ -68,7 +66,6 @@ else
         --app-name="Sway" \
         --icon=dialog-error \
         --urgency=critical \
-        --expire-time=0 \
         "Screenshot Failed" "Could not capture the screen"
     exit 1
 fi

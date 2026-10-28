@@ -37,6 +37,9 @@
 - /.zcompdump
 - /.zsh_history
 - /music/**
+# Mounted homelab backup (rclone-mount.sh backup) lives inside $HOME; never
+# sync the mirror back into itself.
+- /public/homelab/**
 
 - **/.git/**
 - **/.venv/**

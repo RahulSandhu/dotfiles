@@ -97,8 +97,6 @@ mount_target() {
         for _ in 1 2 3 4 5; do
             if mountpoint -q "$MOUNT"; then
                 notify_mounted
-                # The music library just appeared; tell mpd to re-index it.
-                [ "$TARGET" = music ] && { rmpc update >/dev/null 2>&1 || true; }
                 exit 0
             fi
             sleep 1

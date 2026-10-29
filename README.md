@@ -84,7 +84,6 @@ The color scheme is inspired by the **Framework 12 Sage** laptop.
 | handy         | `.config/handy/`                                     | Offline speech-to-text dictation; toggle script bound to `$mod+o` in Sway.                   |
 | herdr         | `.config/herdr/`                                     | Agent-native terminal multiplexer for AI coding agents.                                      |
 | kitty         | `.config/kitty/`                                     | Terminal emulator with custom colors and font.                                               |
-| mpd           | `.config/mpd/`                                       | Music Player Daemon.                                                                         |
 | neovim        | `.config/nvim/`                                      | Editor with Lazy.nvim plugin manager.                                                        |
 | notse         | `.config/notse/`                                     | Terminal-based note-taking app.                                                              |
 | npm           | `.npmrc`                                             | npm global install prefix.                                                                   |
@@ -92,7 +91,6 @@ The color scheme is inspired by the **Framework 12 Sage** laptop.
 | powerlevel10k | `.p10k.zsh`                                          | Zsh prompt theme.                                                                            |
 | r             | `.Renviron`, `.Rprofile`                             | R environment and renv setup.                                                                |
 | rclone        | `.config/rclone/`                                    | Backup sync to the homelab (`sync-homelab.sh`) and its filters.                              |
-| rmpc          | `.config/rmpc/`                                      | Client for Music Player Daemon.                                                              |
 | sway          | `.config/sway/`, `.zprofile`                         | Wayland tiling window manager; `.zprofile` auto-starts Sway on `tty1`.                       |
 | swaync        | `.config/swaync/`                                    | Notification and control center; hosts the Wi-Fi, Bluetooth and Tailscale-first VPN toggles. |
 | swayosd       | `.config/swayosd/`                                   | On-screen display for volume and brightness.                                                 |

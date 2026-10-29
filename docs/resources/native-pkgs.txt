@@ -95,8 +95,6 @@ mariadb-clients
 mariadb-libs
 mesa
 mise
-mpd
-mpd-mpris
 neovim
 networkmanager
 networkmanager-openvpn
@@ -144,7 +142,6 @@ rclone
 reflector
 ripgrep
 rkhunter
-rmpc
 rsync
 ruby
 ruby-build

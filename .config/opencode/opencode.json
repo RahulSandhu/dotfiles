@@ -15,12 +15,7 @@
       },
       "models": {
         "deepseek/deepseek-v4.1-flash": {
-          "name": "DeepSeek V4.1 Flash (DeepSeek)",
-          "options": {
-            "provider": {
-              "allow_fallbacks": false
-            }
-          }
+          "name": "DeepSeek V4.1 Flash (DeepSeek)"
         }
       }
     }

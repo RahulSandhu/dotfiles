@@ -1,17 +1,14 @@
 #!/bin/bash
 
-# Physical keyboards only: skip the wvkbd virtual keyboard
-mapfile -t DEVICES < <(
-    swaymsg -t get_inputs |
-        jq -r '.[] | select(.type == "keyboard" and .name != "wlr_virtual_keyboard_v1") | .identifier'
-)
-
-for id in "${DEVICES[@]}"; do
-    swaymsg input "$id" xkb_switch_layout next >/dev/null
-done
+# All keyboards of a given type share one XKB layout in sway, so switch the
+# whole "keyboard" type in a single command. Enumerating devices and switching
+# each one toggles the shared layout N times, which cancels out whenever N is
+# even (e.g. a Bluetooth headset's AVRCP media keys register as an extra
+# keyboard). Switching by type is immune to how many devices are present.
+swaymsg input type:keyboard xkb_switch_layout next >/dev/null
 
 CURRENT_LAYOUT=$(swaymsg -t get_inputs |
-    jq -r --arg id "${DEVICES[0]}" '.[] | select(.identifier == $id) | .xkb_active_layout_name')
+    jq -r '[.[] | select(.type == "keyboard" and .name != "wlr_virtual_keyboard_v1")][0].xkb_active_layout_name // "unknown"')
 
 notify-send \
     --app-name="Sway" \

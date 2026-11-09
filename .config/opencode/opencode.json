@@ -48,41 +48,42 @@
   "plugin": ["superpowers@git+https://github.com/obra/superpowers.git"],
 
   "mcp": {
-    "brave-search": {
-      "type": "local",
-      "command": ["npx", "-y", "@modelcontextprotocol/server-brave-search"],
-      "enabled": true,
-      "environment": {
-        "BRAVE_API_KEY": "{env:BRAVE_SEARCH_KEY}"
+    "servers": {
+      "brave-search": {
+        "type": "local",
+        "command": ["npx", "-y", "@modelcontextprotocol/server-brave-search"],
+        "environment": {
+          "BRAVE_API_KEY": "{env:BRAVE_SEARCH_KEY}"
+        }
+      },
+      "consensus": {
+        "type": "remote",
+        "url": "https://mcp.consensus.app/mcp",
+        "oauth": false,
+        "headers": {
+          "Authorization": "Bearer {env:CONSENSUS_KEY}"
+        }
+      },
+      "github": {
+        "type": "remote",
+        "url": "https://api.githubcopilot.com/mcp/",
+        "oauth": false,
+        "headers": {
+          "Authorization": "Bearer {env:GITHUB_KEY}"
+        }
+      },
+      "pdf-extraction": {
+        "type": "local",
+        "command": ["{env:HOME}/.config/opencode/mcp/pdf-extraction-server/.venv/bin/python", "-m", "pdf_extraction"]
+      },
+      "sqlite": {
+        "type": "local",
+        "command": ["{env:HOME}/.config/opencode/mcp/sqlite-server/.venv/bin/python", "-m", "sqlite_mcp"]
+      },
+      "figurelabs": {
+        "type": "remote",
+        "url": "https://api.figurelabs.ai/plot-mcp"
       }
-    },
-    "consensus": {
-      "type": "remote",
-      "url": "https://mcp.consensus.app/mcp",
-      "enabled": true,
-      "oauth": false,
-      "headers": {
-        "Authorization": "Bearer {env:CONSENSUS_KEY}"
-      }
-    },
-    "github": {
-      "type": "remote",
-      "url": "https://api.githubcopilot.com/mcp/",
-      "enabled": true,
-      "oauth": false,
-      "headers": {
-        "Authorization": "Bearer {env:GITHUB_KEY}"
-      }
-    },
-    "pdf-extraction": {
-      "type": "local",
-      "command": ["{env:HOME}/.config/opencode/mcp/pdf-extraction-server/.venv/bin/python", "-m", "pdf_extraction"],
-      "enabled": true
-    },
-    "sqlite": {
-      "type": "local",
-      "command": ["{env:HOME}/.config/opencode/mcp/sqlite-server/.venv/bin/python", "-m", "sqlite_mcp"],
-      "enabled": true
     }
   }
 }

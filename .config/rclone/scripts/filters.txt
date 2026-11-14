@@ -27,15 +27,21 @@
 - /.rbenv/**
 - /.renv/**
 - /.ssh/**
+- /.steam/**
 - /.swt/**
 - /.texlive/**
 - /.thunderbird/**
 - /.bootdev.yaml
 - /.pdfbox.cache
 - /.python_history
+- /.smbcredentials
+- /.steampath
+- /.steampid
 - /.wget-hsts
 - /.zcompdump
+- /.zshenv
 - /.zsh_history
+- /desktop/games/**
 - /music/**
 - /public/**
 

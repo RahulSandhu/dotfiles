@@ -194,6 +194,7 @@ virtualbox-host-dkms
 vlc
 vlc-plugins-all
 vulkan-intel
+vulkan-tools
 waybar
 wev
 wf-recorder

@@ -85,9 +85,8 @@ exec_always ~/.config/swaync/scripts/wifi.sh --monitor
 exec bash -c 'systemctl --user import-environment DISPLAY SWAYSOCK WAYLAND_DISPLAY XDG_CURRENT_DESKTOP; systemctl --user start blueman-applet.service'
 
 # Screen saver after 10 min idle: an animated eye on a spare workspace, torn
-# down on any input (see scripts/idle.sh; it also disables kitty's close
-# confirmation)
-exec_always bash -c 'pkill swayidle; ~/.config/sway/scripts/idle.sh &'
+# down on any input (kitty's close confirmation is off so it closes instantly)
+exec_always pkill swayidle; swayidle -w timeout 600 'swaymsg workspace number 99; swaymsg "exec kitty -o confirm_os_window_close=0 --class eye-screensaver python3 ~/.config/sway/scripts/eyes.py"' resume 'swaymsg "[app_id=eye-screensaver] kill"; swaymsg workspace back_and_forth; swaymsg seat seat0 cursor move 960 600' &
 
 # Input method and clipboard
 exec wvkbd-mobintl --hidden -L 320 -H 400 --no-feedback

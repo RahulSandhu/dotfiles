@@ -56,5 +56,6 @@
 - **/.ruff_cache/**
 - **/target/**
 - **/*.egg-info/**
+- **/*.sock
 
 - /.config/rclone/rclone.log

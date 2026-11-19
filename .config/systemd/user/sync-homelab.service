@@ -1,7 +1,5 @@
 [Unit]
 Description=rclone sync to the homelab (backup mirror)
-After=graphical-session.target
-Wants=graphical-session.target
 
 [Service]
 Type=oneshot

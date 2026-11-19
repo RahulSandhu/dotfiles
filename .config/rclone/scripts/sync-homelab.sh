@@ -33,6 +33,7 @@ if [ $EXIT_CODE -eq 0 ]; then
         --app-name="rclone" \
         --icon=network-server \
         --urgency=normal \
+        --expire-time=10000 \
         --replace-id=9985 \
         "Sync Complete" "Homelab sync finished successfully"
 else

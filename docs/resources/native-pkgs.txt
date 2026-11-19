@@ -178,6 +178,7 @@ texlive-plaingeneric
 texlive-xetex
 timeshift
 tinyxxd
+traceroute
 tree-sitter-cli
 ttf-jetbrains-mono-nerd
 tuned
